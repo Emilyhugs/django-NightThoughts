@@ -20,5 +20,7 @@ from thoughts.views import my_thoughts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("allauth.urls")),
     path('thoughts/', my_thoughts, name='thoughts'),
+  
 ]
