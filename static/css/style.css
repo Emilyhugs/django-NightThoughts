@@ -37,6 +37,34 @@ footer {
     font-size: 14px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
+/* 🌙 Pagination Styling */
+.pagination {
+    background: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* 🔹 Page Links */
+.page-link {
+    background: rgba(255, 255, 255, 0.1); /* Soft transparent white */
+    color: #a0c4ff; /* Calming blue */
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* 🌠 Hover & Active States */
+.page-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* 🚫 Disabled Page Link */
+.page-item.disabled .page-link {
+    background: none;
+    color: rgba(255, 255, 255, 0.3);
+    border: none;
+}
 
 /* 
 .brand {
