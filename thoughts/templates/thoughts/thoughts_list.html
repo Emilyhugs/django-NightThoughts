@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:2 and not forloop.last %}
             </div>
             <div class="row">
                 {% endif %}
