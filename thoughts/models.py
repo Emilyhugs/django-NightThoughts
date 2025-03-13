@@ -17,3 +17,9 @@ class Thought(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     
+    class Meta: 
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.user.username}: {self.content[:30]}..."
+    

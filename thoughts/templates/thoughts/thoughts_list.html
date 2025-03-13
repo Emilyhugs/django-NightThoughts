@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- thoughts_list.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Thought Entries Column -->
+        <h1>Thoughts list</h1>
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for thought in page_obj%}
+                <div class="col-md-6 mb-4">
+                    <div class="card thought-card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ thought.category}}</h5>
+                            <p class="card-text">{{ thought.content }}</p>
+                            <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+
+<!-- thoughts_list.html content ends here -->
+{% endblock %}
