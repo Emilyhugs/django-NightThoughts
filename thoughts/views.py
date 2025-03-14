@@ -2,15 +2,18 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Thought
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
-class ThoughtList(generic.ListView):
-   queryset = Thought.objects.all()
-   template_name = "thoughts/thoughts_list.html"
-   paginate_by = 6
-   
-#     thoughts = Thought.objects.filter(user=request.user).order_by('-created_at')  # Fetch user's thoughts
+class ThoughtList(LoginRequiredMixin, generic.ListView):
+    template_name = "thoughts/thoughts_list.html"
+    context_object_name = "thoughts"
+    paginate_by = 6
+
+    # Custom queryset to only show the thoughts of the logged-in user
+    def get_queryset(self):
+        return Thought.objects.filter(user=self.request.user).order_by("-created_at")
     
 #     paginator = Paginator(thoughts, 5)  # Show 5 thoughts per page
 #     page_number = request.GET.get('page')  # Get page number from URL (e.g., ?page=2)

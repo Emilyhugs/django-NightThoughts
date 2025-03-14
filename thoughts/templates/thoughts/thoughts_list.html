@@ -5,50 +5,62 @@
 <!-- thoughts_list.html content starts here -->
 <div class="container-fluid">
     <div class="row">
+        {% if user.is_authenticated %}
+            <h1 class="mt-4">Your Thoughts</h1>
 
-        <!-- Thought Entries Column -->
-        <h1>Thoughts list</h1>
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for thought in page_obj%}
-                <div class="col-md-6 mb-4">
-                    <div class="card thought-card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ thought.category}}</h5>
-                            <p class="card-text">{{ thought.content }}</p>
-                            <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
-                        </div>
+            {% if thoughts %}
+                <div class="col-12 mt-3">
+                    <div class="row">
+                        {% for thought in thoughts %}
+                            <div class="col-md-6 mb-4">
+                                <div class="card thought-card">
+                                    <div class="card-body">
+                                        {% if thought.category %}
+                                            <h5 class="card-title">{{ thought.category }}</h5>
+                                            {% else %}
+                                            <h5 class="card-title" style="visibility: hidden;">&nbsp;</h5>
+                                        {% endif %}
+                                        <p class="card-text">{{ thought.content }}</p>
+                                        <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:2 and not forloop.last %}
+                    </div>
+                    <div class="row">
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 and not forloop.last %}
-            </div>
-            <div class="row">
+
+                {% if is_paginated %}
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-dark justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                                </li>
+                            {% endif %}
+                            <li class="page-item disabled">
+                                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+                            </li>
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 {% endif %}
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination pagination-dark justify-content-center">
-            {% if page_obj.has_previous %}
-    <li class="page-item">
-        <a href="?page={{ page_obj.previous_page_number }}"
-          class="page-link">&laquo; PREV</a>
-    </li>
-    {% endif %}
-    <li class="page-item disabled">
-        <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-    </li class="page-item">
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% else %}
+                <p class="text-muted mt-4">You haven't added any thoughts yet.</p>
             {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+        {% else %}
+            <div class="col-12 text-center mt-5">
+                <h2>Please <a href="{% url 'account_login' %}">log in</a> to view your thoughts.</h2>
+            </div>
+        {% endif %}
+    </div>
 </div>
-
-
 <!-- thoughts_list.html content ends here -->
 {% endblock %}
