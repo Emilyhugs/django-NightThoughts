@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!-- thoughts_list.html content starts here -->
@@ -8,7 +9,30 @@
         {% if user.is_authenticated %}
             <h1 class="mt-4">Your Thoughts</h1>
 
-            {% if thoughts %}
+             <!-- Button to trigger modal -->
+             <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addThoughtModal">
+                Add New Thought
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addThoughtModal" tabindex="-1" aria-labelledby="addThoughtModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addThoughtModalLabel">Add a New Thought</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="{% url 'create_thought' %}">
+                                {% csrf_token %}
+                                {{ thought_form|crispy }}
+                                <button type="submit" class="btn btn-success">Save Thought</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               {% if thoughts %}
                 <div class="col-12 mt-3">
                     <div class="row">
                         {% for thought in thoughts %}

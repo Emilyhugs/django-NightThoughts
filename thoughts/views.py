@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Thought
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
+from .forms import ThoughtForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 class ThoughtList(LoginRequiredMixin, generic.ListView):
@@ -14,6 +17,21 @@ class ThoughtList(LoginRequiredMixin, generic.ListView):
     # Custom queryset to only show the thoughts of the logged-in user
     def get_queryset(self):
         return Thought.objects.filter(user=self.request.user).order_by("-created_at")
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['thought_form'] = ThoughtForm() # For the form in the thoughts_list.html template
+      return context
+    
+class CreateThought(LoginRequiredMixin, CreateView):
+    model = Thought
+    form_class = ThoughtForm
+    success_url = reverse_lazy("home")  # Redirect to the thoughts list page
+
+    def form_valid(self, form):
+        # Automatically associate the thought with the logged-in user
+        form.instance.user = self.request.user
+        return super().form_valid(form)
     
 #     paginator = Paginator(thoughts, 5)  # Show 5 thoughts per page
 #     page_number = request.GET.get('page')  # Get page number from URL (e.g., ?page=2)
