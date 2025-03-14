@@ -8,19 +8,60 @@ body {
     flex-direction: column;
 }
 
-/* ✨ Navbar */
-.navbar {
-    background-color: rgba(13, 27, 42, 0.9); /* Semi-transparent deep blue */
-    backdrop-filter: blur(5px); /* Blurred glass effect */
+/* 🌙 NAVBAR STYLING */
+.custom-navbar {
+    background: rgba(20, 20, 40, 0.85); /* Dark blue with transparency */
+    backdrop-filter: blur(10px); /* Soft blur effect */
+    padding: 12px 0;
+    transition: background 0.3s ease-in-out;
 }
 
-.navbar-brand, .nav-link {
-    color: #f8f9fa !important; /* Soft white */
+/* 🔹 NAVBAR BRAND (LOGO) */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #a0c4ff !important; /* Soft blue */
+    transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #a0c4ff !important; /* Light blue hover effect */
+.navbar-brand:hover {
+    color: #d0aaff !important; /* Soft purple */
 }
+
+/* 🔹 NAV LINKS */
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin: 0 12px; /* Uniform spacing */
+    padding: 8px 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* ✅ ACTIVE LINK */
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    font-weight: bold;
+    border-bottom: 2px solid #d0aaff; /* Subtle purple highlight */
+}
+
+/* 🚀 HOVER EFFECT */
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* 📱 MOBILE MENU */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar {
+        background: rgba(20, 20, 40, 1); /* Fully solid on small screens */
+    }
+}
+
 
 /* 📝 Main Content */
 main {
