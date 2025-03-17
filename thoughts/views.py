@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from .forms import ThoughtForm
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 # Create your views here.
 class ThoughtList(LoginRequiredMixin, generic.ListView):
@@ -31,6 +32,9 @@ class CreateThought(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         # Automatically associate the thought with the logged-in user
         form.instance.user = self.request.user
+        messages.add_message(self.request, messages.SUCCESS,
+        'Your thought has been added successfully')
+
         return super().form_valid(form)
     
 #     paginator = Paginator(thoughts, 5)  # Show 5 thoughts per page
