@@ -1,50 +1,45 @@
-const editButtons = document.getElementsByClassName("btn-edit");
+const editButtons = document.querySelectorAll(".btn-edit");
 const thoughtText = document.getElementById("id_content");
 const thoughtForm = document.getElementById("thoughtForm");
 const submitButton = document.getElementById("submitButton");
+const addThoughtModal = document.getElementById("addThoughtModal");
+const addThoughtButton = document.querySelector("[data-bs-target='#addThoughtModal']");
 
-/**
-* Initializes edit functionality for the provided edit buttons.
-* 
-* For each button in the `editButtons` collection:
-* - Retrieves the associated thought's ID upon click.
-* - Fetches the content of the corresponding thought.
-* - Populates the `thoughtText` input/textarea with the thought's content for editing.
-* - Updates the submit button's text to "Update".
-* - Sets the form's action attribute to the `update_thought/{thoughtId}` endpoint.
-*/
-// for (let button of editButtons) {
-//   button.addEventListener("click", (e) => {
-//     let thoughtId = e.target.getAttribute("thought_id");
-//     let thoughtContent = document.getElementById(`thought${thoughtId}`).innerText;
-//     thoughtText.value = thoughtContent;
-//     submitButton.innerText = "Update";
-//     thoughtForm.setAttribute("action", `update/${thoughtId}`);
-//   });
-// }
+// Ensure the modal gets focus when opened to prevent accessibility issues.
+addThoughtModal.addEventListener("shown.bs.modal", () => {
+    addThoughtModal.focus();
+  });
 
-console.log("Edit buttons:", editButtons);
-console.log("Thought text area:", thoughtText);
-console.log("Thought form:", thoughtForm);
-console.log("Submit button:", submitButton);
+  // Ensure focus is returned to the button after the modal is closed to prevent accessibility issues.
+addThoughtModal.addEventListener("hidden.bs.modal", () => {
+    addThoughtButton.focus();
+});
 
-for (let button of editButtons) {
+// Loop through edit buttons and add event listener
+editButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     console.log("Edit button clicked:", e.target);
 
-    let thoughtId = e.target.getAttribute("thought_id");
+    // Get the thought ID from the button
+    const thoughtId = button.getAttribute("thought_id");
     console.log("Thought ID:", thoughtId);
 
-    let thoughtContent = document.getElementById(`thought${thoughtId}`);
+    // Get the content of the thought using the correct ID
+    const thoughtContent = document.getElementById(`thoughtContent${thoughtId}`);
     if (thoughtContent) {
       console.log("Thought content:", thoughtContent.innerText);
-      thoughtText.value = thoughtContent.innerText;
+      thoughtText.value = thoughtContent.innerText; // Set input value
     } else {
-      console.error(`Element with ID thought${thoughtId} not found.`);
+      console.error(`Element with ID thoughtContent${thoughtId} not found.`);
     }
 
+    // Change submit button text to 'Update'
+    modalTitle.innerText = "Edit Thought";
     submitButton.innerText = "Update";
-    thoughtForm.setAttribute("action", `update/${thoughtId}`);
+   
+
+    // Update the form action to send data to the correct update view
+    thoughtForm.setAttribute("action", `/update/${thoughtId}/`);
     console.log("Form action updated to:", thoughtForm.getAttribute("action"));
   });
-}
+});

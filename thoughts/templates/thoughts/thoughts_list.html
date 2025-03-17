@@ -15,40 +15,43 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="addThoughtModal" tabindex="-1" aria-labelledby="addThoughtModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addThoughtModalLabel">Add a New Thought</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id= 'thoughtForm' method="post" action="{% url 'create_thought' %}">
-                                {% csrf_token %}
-                                {{ thought_form|crispy }}
-                                <button id="submitButton" type="submit" class="btn btn-success">Save Thought</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+            <!-- Modal -->
+<div class="modal fade" id="addThoughtModal" tabindex="-1" aria-labelledby="addThoughtModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Add a New Thought</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <form id="thoughtForm" method="post" action="{% url 'create_thought' %}">
+                    {% csrf_token %}
+                    {{ thought_form|crispy }}
+                    <button id="submitButton" type="submit" class="btn btn-success">Save Thought</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- End of Modal -->
                {% if thoughts %}
                 <div class="col-12 mt-3">
                     <div class="row">
                         {% for thought in thoughts %}
                             <div class="col-md-6 mb-4">
-                                <div class="card thought-card">
+                                <div class="card thought-card thought-content" id="thought{{ thought.id }}">
                                     <div class="card-body">
                                         {% if thought.category %}
                                             <h5 class="card-title">{{ thought.category }}</h5>
                                             {% else %}
                                             <h5 class="card-title" style="visibility: hidden;">&nbsp;</h5>
                                         {% endif %}
-                                        <p class="card-text">{{ thought.content }}</p>
+                                        <p class="card-text"id="thoughtContent{{ thought.id }}">{{ thought.content }}</p>
                                         <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
-                                  thought_id="{{ thought.id }}">Update</button>
+                                  thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update</button>
                                 {% endif %}
                                     </div>
                                 </div>

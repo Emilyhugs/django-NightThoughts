@@ -8,7 +8,7 @@ from django.shortcuts import render, get_object_or_404
 from .forms import ThoughtForm
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 
 # Create your views here.
 class ThoughtList(LoginRequiredMixin, generic.ListView):
@@ -18,7 +18,8 @@ class ThoughtList(LoginRequiredMixin, generic.ListView):
 
     # Custom queryset to only show the thoughts of the logged-in user
     def get_queryset(self):
-        return Thought.objects.filter(user=self.request.user).order_by("-created_at")
+        queryset = Thought.objects.filter(user=self.request.user).order_by("-created_at")
+        return queryset
 
     def get_context_data(self, **kwargs):
       context = super().get_context_data(**kwargs)
@@ -42,14 +43,9 @@ class CreateThought(LoginRequiredMixin, CreateView):
 
 @login_required
 def update_thought(request, thought_id):
-   """
-View to edit a thought.
+    thought = get_object_or_404(Thought, pk=thought_id, user=request.user)
 
-
-- POST: Validates and updates the thought, then redirects to the homepage.
-"""
-   if request.method == "POST":
-       thought = get_object_or_404(Thought, pk=thought_id, user=request.user)
+    if request.method == "POST":
        thought_form = ThoughtForm(data=request.POST, instance=thought)
        if thought_form.is_valid():
                thought.save()
@@ -58,7 +54,8 @@ View to edit a thought.
        else:
                messages.add_message(request, messages.ERROR, 'Error updating thought!')
                return render(request, "thoughts/thought_form.html", {"thought_form": thought_form})
-
+       
+    return JsonResponse({"content": thought.content})
 
 
 

@@ -21,5 +21,5 @@ class Thought(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.user.username}: {self.content[:30]}..."
+        return f"{self.user.username}: {self.content}..."
     
