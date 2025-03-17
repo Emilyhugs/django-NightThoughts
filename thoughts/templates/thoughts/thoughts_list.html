@@ -23,10 +23,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="{% url 'create_thought' %}">
+                            <form id= 'thoughtForm' method="post" action="{% url 'create_thought' %}">
                                 {% csrf_token %}
                                 {{ thought_form|crispy }}
-                                <button type="submit" class="btn btn-success">Save Thought</button>
+                                <button id="submitButton" type="submit" class="btn btn-success">Save Thought</button>
                             </form>
                         </div>
                     </div>
@@ -46,6 +46,10 @@
                                         {% endif %}
                                         <p class="card-text">{{ thought.content }}</p>
                                         <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
+                                        {% if user.is_authenticated and thought.user == user %}
+                                <button class="btn btn-edit"
+                                  thought_id="{{ thought.id }}">Update</button>
+                                {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -87,4 +91,8 @@
     </div>
 </div>
 <!-- thoughts_list.html content ends here -->
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/thoughts.js' %}"></script>
 {% endblock %}
