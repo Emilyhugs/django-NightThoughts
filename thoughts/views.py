@@ -64,7 +64,7 @@ def delete_thought(request, thought_id):
         thought.delete()
         messages.add_message(request, messages.SUCCESS, 'Thought Deleted!')
     except Exception as e:
-        messages.add_message(request, messages.ERROR, f'Error deleting thought: {str(e)}')
+        messages.add_message(request, messages.ERROR, 'Error deleting thought')
     return HttpResponseRedirect(reverse("home"))
 
 
