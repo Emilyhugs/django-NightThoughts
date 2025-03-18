@@ -56,4 +56,3 @@ document.addEventListener("click", (e) => {
         deleteModal.show();
     }
 });
-
