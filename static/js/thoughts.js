@@ -57,27 +57,3 @@ document.addEventListener("click", (e) => {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
