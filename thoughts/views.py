@@ -57,6 +57,14 @@ def update_thought(request, thought_id):
        
     return JsonResponse({"content": thought.content})
 
+@login_required
+def delete_thought(request, thought_id):
+    thought = get_object_or_404(Thought, pk=thought_id, user=request.user)
+    thought.delete()
+    messages.add_message(request, messages.SUCCESS, 'Thought Deleted!')
+    messages.add_message(request, messages.ERROR, 'Error deleting thought!')
+    return HttpResponseRedirect(reverse("home"))
+
 
 
 # @login_required
