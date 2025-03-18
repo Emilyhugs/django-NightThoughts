@@ -59,10 +59,12 @@ def update_thought(request, thought_id):
 
 @login_required
 def delete_thought(request, thought_id):
-    thought = get_object_or_404(Thought, pk=thought_id, user=request.user)
-    thought.delete()
-    messages.add_message(request, messages.SUCCESS, 'Thought Deleted!')
-    messages.add_message(request, messages.ERROR, 'Error deleting thought!')
+    try:
+        thought = get_object_or_404(Thought, pk=thought_id, user=request.user)
+        thought.delete()
+        messages.add_message(request, messages.SUCCESS, 'Thought Deleted!')
+    except Exception as e:
+        messages.add_message(request, messages.ERROR, f'Error deleting thought: {str(e)}')
     return HttpResponseRedirect(reverse("home"))
 
 
