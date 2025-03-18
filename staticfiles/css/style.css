@@ -1,267 +1,123 @@
-/* 🌌 General Page Styles */
+/* Global Styles */
 body {
-    background: linear-gradient(to bottom, #0d1b2a, #1b263b, #415a77); /* Night sky gradient */
-    color: #dee2e6; /* Soft text for readability */
-    font-family: 'Nunito', sans-serif; /* Google Font for a calm look */
-    min-height: 100vh; /* Ensure full height */
-    display: flex;
-    flex-direction: column;
-}
-/* 🌙 NAVBAR STYLING */
-.custom-navbar {
-    background: rgba(20, 20, 40, 0.85); /* Dark blue with transparency */
-    backdrop-filter: blur(10px); /* Soft blur effect */
-    padding: 12px 0;
-    transition: background 0.3s ease-in-out;
+    background-color: red !important;
+    /* background: linear-gradient(180deg, #0B132B, #1C2541); */
+    color: #ddd;
+    font-family: 'Karla', sans-serif;
+    line-height: 1.7;
 }
 
-/* 🔹 NAVBAR BRAND (LOGO) */
+/* Headings - Elegant & Soothing */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #EAC67A;
+}
+
+/* Navigation Bar */
+.custom-navbar {
+    background: rgba(12, 20, 40, 0.8);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
 .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    color: #a0c4ff !important; /* Soft blue */
+}
+.navbar-nav .nav-link {
+    color: #6FFFE9;
     transition: color 0.3s ease;
 }
-
-.navbar-brand:hover {
-    color: #d0aaff !important; /* Soft purple */
-}
-
-/* 🔹 NAV LINKS */
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7) !important;
-    margin: 0 12px; /* Uniform spacing */
-    padding: 8px 15px;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-/* ✅ ACTIVE LINK */
-.navbar-nav .nav-link.active {
-    color: #ffffff !important;
-    font-weight: bold;
-    border-bottom: 2px solid #d0aaff; /* Subtle purple highlight */
-}
-
-/* 🚀 HOVER EFFECT */
 .navbar-nav .nav-link:hover {
-    color: #ffffff !important;
-    transform: translateY(-2px); /* Subtle lift */
+    color: #EAC67A;
 }
 
-/* 📱 MOBILE MENU */
-.navbar-toggler {
-    border: none;
-    outline: none;
-}
-
-@media (max-width: 991px) {
-    .custom-navbar {
-        background: rgba(20, 20, 40, 1); /* Fully solid on small screens */
-    }
-}
-
-
-
-/* 📝 Main Content */
-main {
-    flex: 1; /* Pushes footer down */
+/* Main Content */
+.main-bg {
     padding: 20px;
+    min-height: 100vh;
 }
 
-/* 🌠 Footer */
-footer {
-    background: rgba(13, 27, 42, 0.8); /* Match navbar */
-    color: #a8b2d1;
+/* Thought Cards */
+.thought-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out;
+}
+.thought-card:hover {
+    transform: scale(1.02);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #6FFFE9;
+    color: #0B132B;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #EAC67A;
+    color: #0B132B;
+}
+
+/* Footer */
+.footer {
+    background: #0B132B;
     text-align: center;
     padding: 15px;
-    font-size: 14px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
 }
-/* 🌙 Pagination Styling */
-.pagination {
-    background: none;
+.footer i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.footer i:hover {
+    color: #EAC67A;
+}
+
+/* Modal (Thought Input) */
+.modal-content {
+    background: rgba(12, 20, 40, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+}
+.modal-title {
+    color: #EAC67A;
+}
+.btn-close {
+    filter: invert(1);
+}
+
+/* Thought Input Field */
+input, textarea {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid #6FFFE9;
+    border-radius: 10px;
     padding: 10px;
-    border-radius: 8px;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #EAC67A;
 }
 
-/* 🔹 Page Links */
-.page-link {
-    background: rgba(255, 255, 255, 0.1); /* Soft transparent white */
-    color: #a0c4ff; /* Calming blue */
-    border: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+/* Subtle Floating Stars (Background Effect) */
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
 }
-
-/* 🌠 Hover & Active States */
-.page-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-/* 🚫 Disabled Page Link */
-.page-item.disabled .page-link {
-    background: none;
-    color: rgba(255, 255, 255, 0.3);
-    border: none;
-}
-
-/* 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
-}
-
-.red-o {
-    color: #E84610;
-}
-
-.thin {
-    font-weight: 300;
-}
-
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
-}
-
-.card {
-    border: none;
-    background-color: transparent;
-}
-
-.image-container {
-    position: relative;
-}
-
-.image-flash {
+.stars {
     position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
 }
-
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
-.btn-signup,
-.btn-edit {
-    background-color: #188181;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
-}
-
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
-} */

@@ -26,7 +26,7 @@
         <!-- Custom CSS -->
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <!--Favicon-->
-<link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+<link rel="icon" type="image/png" href="{% static 'images/favicon-16x16.png' %}">
 
 </head>
 
@@ -36,7 +36,11 @@
     <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">NightThoughts</a>
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+            <img src="{% static 'images/favicon-32x32.png' %}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top me-2">
+            NightThoughts
+        </a>
+        <!-- <a class="navbar-brand" href="{% url 'home' %}">NightThoughts</a> -->
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
             data-bs-target="#navbarNav" aria-controls="navbarNav" 
