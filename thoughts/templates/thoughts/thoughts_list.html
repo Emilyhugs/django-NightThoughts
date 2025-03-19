@@ -11,7 +11,7 @@
 
              <!-- Button to trigger modal -->
              <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addThoughtModal">
-                Add New Thought
+                New Thought  <i class="fa-solid fa-pen-to-square"></i>
             </button>
 
            
@@ -20,7 +20,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Add a New Thought</h5>
+                <h5 class="modal-title" id="modalTitle">What's on your mind?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -53,8 +53,8 @@
                                         <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
-                                  thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update</button>
-                                  <button class="btn btn-danger btn-delete" thought_id="{{ thought.id }}">Delete</button>
+                                  thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
+                                  <button class="btn btn-danger btn-delete" thought_id="{{ thought.id }}">Delete <i class="fa-solid fa-trash"></i></button>
                                 {% endif %}
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@ aria-labelledby="deleteModalLabel" aria-hidden="true">
       <button type="button" class="btn btn-secondary"
         data-bs-dismiss="modal">Cancel</button>
       <a id="deleteConfirm" href="#" class="btn
-        btn-danger">Delete</a>
+        btn-danger">Delete</i></a>
     </div>
   </div>
 </div>

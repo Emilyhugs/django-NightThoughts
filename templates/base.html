@@ -51,12 +51,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}"><i class="fa-solid fa-house fa-lg"></i></a>
                 </li>
 
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link {% if request.path ==  logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                    <a class="nav-link {% if request.path ==  logout_url %}active{% endif %}" href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a>
                 </li>
                 {% else %}
                 <li class="nav-item">
