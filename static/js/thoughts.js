@@ -56,3 +56,22 @@ document.addEventListener("click", (e) => {
         deleteModal.show();
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all alerts with the class .alert
+    const alerts = document.querySelectorAll('.alert');
+
+    // Loop through each alert and set a timeout to close it
+    alerts.forEach(function(alert) {
+        // Set the timeout (e.g., 5 seconds = 5000 milliseconds)
+        setTimeout(function() {
+            // Check if the alert is still visible before attempting to close it
+            if (alert) {
+                const closeButton = alert.querySelector('.btn-close');
+                if (closeButton) {
+                    closeButton.click(); // Simulate a click on the close button to dismiss the alert
+                }
+            }
+        }, 5000); // Adjust the time (3000 ms = 3 seconds) as needed
+    });
+});

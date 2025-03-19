@@ -24,15 +24,15 @@
 
   }
   
-  body {
+   body {
     font-family: 'Karla', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     transition: all var(--transition-speed) ease;
-    position: relative;
-    min-height: 100vh; /* Ensure minimum height */
+    position: absolute;
+    min-height: 100%;
   }
-  
+   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
@@ -48,6 +48,9 @@
   }
   
   /* ===== NAVBAR STYLING ===== */
+  .container {
+    background-color: var(--background-color);
+  }
   .navbar {
     background-color: var(--background-color);
     border-bottom: 1px solid var(--accent-color);
@@ -304,17 +307,10 @@
     color: var(--text-color);
     margin-bottom: 0.5rem;
   }
-  
- /* Alert styling */
 
-  /* Making sure Bootstrap modal components don't get overridden */
-  .btn-close {
-    opacity: 0.7;
-    filter: invert(1) grayscale(100%) brightness(200%);
-  }
-  
-  .btn-close:hover {
-    opacity: 1;
+  .custom-alert {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
   }
   
   /* ===== RESPONSIVE ADJUSTMENTS ===== */

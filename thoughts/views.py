@@ -66,13 +66,3 @@ def delete_thought(request, thought_id):
     except Exception as e:
         messages.add_message(request, messages.ERROR, 'Error deleting thought')
     return HttpResponseRedirect(reverse("home"))
-
-
-
-# @login_required
-# def delete_thought(request, thought_id):
-#     thought = get_object_or_404(Thought, id=thought_id, user=request.user)
-#     if request.method == "POST":
-#         thought.delete()
-#         return redirect('thoughts_list')
-#     return render(request, 'thoughts/thought_confirm_delete.html', {'thought': thought})

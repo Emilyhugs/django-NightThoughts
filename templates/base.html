@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column min-vh-100 main-bg">
 
    
     <!-- Navigation -->
@@ -72,18 +72,16 @@
 </nav>
 <!-- displaying Django messages -->
 {% if messages %}
-    <div class="container mt-3">
+<div class="d-flex justify-content-center">
         {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible
-        fade show" id="msg" role="alert">
-        {{ message | safe }}
+        <div class="alert {{ message.tags }} custom-alert alert-dismissible fade show custom-alert" id="msg" role="alert">
+            <i class="fa-solid fa-circle-check"></i> {{ message | safe }}
         <button type="button" class="btn-close"
           data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
         {% endfor %}
     </div>
 {% endif %}
-
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
