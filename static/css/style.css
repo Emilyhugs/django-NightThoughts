@@ -49,16 +49,6 @@
      background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
   }
   
-  .main-bg::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -2;
-  }
-  
   /* ===== NAVBAR STYLING ===== */
   .navbar {
     background-color: var(--background-color);
@@ -69,7 +59,7 @@
   
   .navbar-brand {
     font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
+    font-size: 2rem;
     color: var(--text-color);
     transition: color var(--transition-speed);
   }
