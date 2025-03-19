@@ -108,11 +108,7 @@
   }
   
   /* ===== CONTAINER AND BUTTON POSITIONING ===== */
-  /* Fix for add thought button positioning */
-  .container-fluid {
-    padding: 0 15px; /* Ensure there's padding on the sides */
-  }
-  
+
   /* Center the Add New Thought button */
   .btn-primary.mb-4 {
     display: block;
@@ -311,12 +307,43 @@
     margin-bottom: 0.5rem;
   }
   
-  /* Alert styling */
-  .alert {
+ /* Alert styling */
+ .alert {
     border-radius: 10px;
-    padding: 0.75rem 1.25rem;
-  }
-  
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--background-color); /* Match site background */
+    border: 1px solid rgba(172, 177, 214, 0.3); /* Subtle border */
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: all var(--transition-speed);
+}
+
+.container .alert {
+    background: linear-gradient(135deg, rgba(58, 74, 123, 0.8), rgba(45, 49, 77, 0.9)); /* Match intended alert styling */
+}
+
+.alert a {
+    color: var(--accent-color); /* Accent color for links */
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.alert a:hover {
+    color: var(--text-color); /* Change to text color on hover */
+    text-decoration: none;
+}
+
+.alert-dismissible .btn-close {
+    color: var(--text-color); /* Match the close button color to the theme */
+    opacity: 0.7;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.alert-dismissible .btn-close:hover {
+    opacity: 1;
+}
   /* Links styling */
   a.link {
     color: var(--accent-color);
@@ -382,13 +409,6 @@
     min-height: calc(100vh - 160px); /* Account for navbar and footer */
     padding-bottom: 2rem; /* Space at the bottom */
   }
-  
-  /* Fix for container positioning */
-  .container, .container-fluid {
-    overflow: visible;
-    padding-bottom: 2rem; /* Extra padding at bottom of containers */
-  }
-
   /* Specifically target logout button to ensure it gets highlighted */
 .navbar-collapse .nav-item:last-child .nav-link:hover,
 .navbar-collapse .nav-item:last-child .nav-link:focus {
