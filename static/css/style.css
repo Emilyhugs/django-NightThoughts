@@ -21,6 +21,7 @@
     --modal-bg: #2d314d;
     --modal-header: #252842;
     --transition-speed: 0.3s;
+
   }
   
   body {
@@ -37,13 +38,15 @@
     font-weight: 400;
     color: var(--text-color);
   }
+  .border-effect {
+    border-bottom: 1px solid rgba(172, 177, 214, 0.2);
+  }
   
   /* ===== BACKGROUND STARS EFFECT ===== */
   .main-bg {
     position: relative;
-    background-color: var(--background-color);
-    min-height: 100vh;
-    /* Remove overflow: hidden which was preventing scrolling */
+    /* background-color: var(--background-color); */
+     background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
   }
   
   .main-bg::before {
@@ -53,34 +56,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
     z-index: -2;
-  }
-  
-  /* Stars background - will be enhanced with JS animation */
-  .stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    transform: translateZ(-10px) scale(2);
-    pointer-events: none;
-  }
-  
-  .star {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 0;
-    animation: twinkle 5s infinite;
-  }
-  
-  @keyframes twinkle {
-    0% { opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0; }
   }
   
   /* ===== NAVBAR STYLING ===== */
@@ -179,7 +155,6 @@
     color: var(--accent-color);
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(172, 177, 214, 0.2);
     padding-bottom: 0.5rem;
   }
   
@@ -307,7 +282,6 @@
   
   .modal-header {
     background-color: var(--modal-header);
-    border-bottom: 1px solid rgba(172, 177, 214, 0.2);
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
     padding: 1rem 1.5rem;
@@ -424,3 +398,130 @@
     overflow: visible;
     padding-bottom: 2rem; /* Extra padding at bottom of containers */
   }
+
+  /* Specifically target logout button to ensure it gets highlighted */
+.navbar-collapse .nav-item:last-child .nav-link:hover,
+.navbar-collapse .nav-item:last-child .nav-link:focus {
+  color: var(--text-color);
+  background-color: rgba(172, 177, 214, 0.2); /* Slightly stronger highlight */
+}
+
+/* Ensure colors work in both expanded and collapsed states */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    padding: 0.5rem;
+    background-color: var(--background-color);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .navbar-collapse .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 10px;
+  }
+}
+
+/* Add this to your style.css file */
+
+/* Authentication Pages Styling */
+.auth-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform var(--transition-speed);
+    margin-bottom: 2rem;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.auth-header {
+    padding: 1.5rem;
+    background-color: rgba(58, 74, 123, 0.6);
+}
+
+.auth-title {
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    text-align: center;
+    animation: breathing 6s infinite ease-in-out;
+}
+
+.auth-body {
+    padding: 2rem;
+}
+
+.auth-body p {
+    color: var(--muted-text);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-link {
+    color: var(--accent-color);
+    transition: all var(--transition-speed);
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    color: var(--text-color);
+}
+
+.auth-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+}
+
+/* Form styling for auth pages */
+.auth-body form p {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.auth-body form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.auth-body form input[type="text"],
+.auth-body form input[type="email"],
+.auth-body form input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(45, 49, 77, 0.8);
+    border: 1px solid rgba(172, 177, 214, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+}
+
+.auth-body form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(172, 177, 214, 0.25);
+    outline: none;
+}
+
+.auth-body .helptext {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+}
+
+/* Fix for error lists */
+.auth-body ul {
+    padding-left: 1.25rem;
+    color: #dc3545;
+}
+
+
