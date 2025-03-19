@@ -1,0 +1,483 @@
+/* NightThoughts - Soothing CSS Design
+ * A calming, sleep-focused design with soft features and gentle animations
+ */
+
+/* ===== FONTS AND BASE STYLES ===== */
+:root {
+    --primary-color: #3a4a7b;
+    --secondary-color: #8294c4;
+    --accent-color: #acb1d6;
+    --background-color: #1a1b2e;
+    --card-bg-color: rgba(45, 49, 77, 0.85);
+    --text-color: #e0e5ff;
+    --muted-text: #b6bbd8;
+    --footer-bg: rgba(26, 27, 46, 0.9);
+    --button-primary: #6373b3;
+    --button-hover: #7a8aca;
+    --button-edit: #5a84a2;
+    --button-danger: #a25a6e;
+    --button-danger-hover: #b6677c;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --modal-bg: #2d314d;
+    --modal-header: #252842;
+    --transition-speed: 0.3s;
+
+  }
+  
+   body {
+    font-family: 'Karla', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all var(--transition-speed) ease;
+    position: absolute;
+    min-height: 100%;
+  }
+   
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: var(--text-color);
+  }
+  .border-effect {
+    border-bottom: 1px solid rgba(172, 177, 214, 0.2);
+  }
+  
+  .main-bg {
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
+  }
+  
+  /* ===== NAVBAR STYLING ===== */
+  .container {
+    background-color: var(--background-color);
+  }
+  .navbar {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--accent-color);
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--text-color);
+    transition: color var(--transition-speed);
+  }
+  
+  .navbar-brand:hover {
+    color: var(--accent-color);
+  }
+  
+  .nav-link {
+    color: var(--muted-text);
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    transition: all var(--transition-speed);
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--text-color);
+    background-color: rgba(172, 177, 214, 0.1);
+  }
+  
+  .navbar-toggler {
+    border: 1px solid var(--accent-color);
+  }
+  
+  /* ===== YOUR THOUGHTS HEADING WITH BREATHING EFFECT ===== */
+  .centered-text {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    animation: breathing 6s infinite ease-in-out;
+  }
+  
+  @keyframes breathing {
+    0%, 100% {
+      opacity: 0.9;
+      transform: scale(1);
+      text-shadow: 0 0 5px rgba(172, 177, 214, 0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.03);
+      text-shadow: 0 0 15px rgba(172, 177, 214, 0.5);
+    }
+  }
+  
+  /* ===== CONTAINER AND BUTTON POSITIONING ===== */
+
+  /* Center the Add New Thought button */
+  .btn-primary.mb-4 {
+    display: block;
+    margin: 0 auto 1.5rem auto; /* Center horizontally with margin bottom */
+    width: auto; /* Let the button size to its content */
+  }
+  
+  /* ===== THOUGHT CARDS STYLING ===== */
+  .thought-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    border: none;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .thought-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text-muted {
+    color: var(--muted-text) !important;
+    font-size: 0.85rem;
+  }
+  
+  /* ===== BUTTONS STYLING ===== */
+  .btn {
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 400;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: var(--button-primary);
+    border-color: var(--button-primary);
+    /* Remove margin-left to prevent button from going off-screen */
+  }
+  
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+  }
+  
+  .btn-edit {
+    background-color: var(--button-edit);
+    border-color: var(--button-edit);
+    color: white;
+    margin-right: 0.5rem;
+  }
+  
+  .btn-edit:hover, .btn-edit:focus {
+    background-color: #6a9ab9;
+    border-color: #6a9ab9;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: var(--button-danger);
+    border-color: var(--button-danger);
+  }
+  
+  .btn-danger:hover, .btn-danger:focus {
+    background-color: var(--button-danger-hover);
+    border-color: var(--button-danger-hover);
+  }
+  
+  .btn-success {
+    background-color: #5a8d7c;
+    border-color: #5a8d7c;
+  }
+  
+  .btn-success:hover, .btn-success:focus {
+    background-color: #6aa08e;
+    border-color: #6aa08e;
+  }
+  
+  /* ===== PAGINATION STYLING ===== */
+  .pagination {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .page-link {
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
+    border-color: rgba(172, 177, 214, 0.2);
+    border-radius: 8px;
+    margin: 0 0.2rem;
+    transition: all var(--transition-speed);
+  }
+  
+  .page-link:hover {
+    background-color: var(--button-primary);
+    color: white;
+  }
+  
+  .page-item.disabled .page-link {
+    background-color: rgba(45, 49, 77, 0.5);
+    color: var(--muted-text);
+  }
+  
+  /* ===== FOOTER STYLING ===== */
+  .footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--accent-color);
+    padding: 1.5rem 0;
+    width: 100%;
+    margin-top: 2rem; /* Add space above footer */
+  }
+  
+  .footer p {
+    font-size: 0.95rem;
+  }
+  
+  .footer .fab {
+    transition: transform var(--transition-speed);
+    cursor: pointer;
+  }
+  
+  .footer .fab:hover {
+    transform: scale(1.2);
+    color: var(--accent-color);
+  }
+  
+  /* ===== FORMS AND MODALS ===== */
+  /* These are styled carefully to avoid Bootstrap conflicts */
+  .modal-content {
+    background-color: var(--modal-bg);
+    border-radius: 15px;
+    border: 1px solid rgba(172, 177, 214, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-header {
+    background-color: var(--modal-header);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    padding: 1rem 1.5rem;
+  }
+  
+  .modal-title {
+    color: var(--text-color);
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid rgba(172, 177, 214, 0.2);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
+  
+  .form-control, .form-select {
+    background-color: rgba(45, 49, 77, 0.8);
+    border: 1px solid rgba(172, 177, 214, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+  }
+  
+  .form-control:focus, .form-select:focus {
+    background-color: rgba(45, 49, 77, 0.9);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(172, 177, 214, 0.25);
+    color: var(--text-color);
+  }
+  
+  label {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .custom-alert {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  @media (max-width: 768px) {
+    .centered-text {
+      font-size: 2rem;
+    }
+    
+    .navbar-brand {
+      font-size: 1.4rem;
+    }
+    
+    .btn {
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-body {
+      padding: 1rem;
+    }
+    
+    .card-title {
+      font-size: 1.1rem;
+    }
+    
+    .card-text {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* ===== SPECIFIC FIXES FOR SCROLLING ISSUES ===== */
+  html, body {
+    height: 100%;
+    overflow-x: hidden; 
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  
+  /* Ensure main content area is scrollable */
+  main.flex-shrink-0 {
+    min-height: calc(100vh - 160px); /* Account for navbar and footer */
+    padding-bottom: 2rem; /* Space at the bottom */
+  }
+  /* Specifically target logout button to ensure it gets highlighted */
+.navbar-collapse .nav-item:last-child .nav-link:hover,
+.navbar-collapse .nav-item:last-child .nav-link:focus {
+  color: var(--text-color);
+  background-color: rgba(172, 177, 214, 0.2); /* Slightly stronger highlight */
+}
+
+/* Ensure colors work in both expanded and collapsed states */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    padding: 0.5rem;
+    background-color: var(--background-color);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .navbar-collapse .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 10px;
+  }
+}
+
+/* Add this to your style.css file */
+
+/* Authentication Pages Styling */
+.auth-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform var(--transition-speed);
+    margin-bottom: 2rem;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.auth-header {
+    padding: 1.5rem;
+    background-color: rgba(58, 74, 123, 0.6);
+}
+
+.auth-title {
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    text-align: center;
+    animation: breathing 6s infinite ease-in-out;
+}
+
+.auth-body {
+    padding: 2rem;
+}
+
+.auth-body p {
+    color: var(--muted-text);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-link {
+    color: var(--accent-color);
+    transition: all var(--transition-speed);
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    color: var(--text-color);
+}
+
+.auth-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all var(--transition-speed);
+}
+
+/* Form styling for auth pages */
+.auth-body form p {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.auth-body form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.auth-body form input[type="text"],
+.auth-body form input[type="email"],
+.auth-body form input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: rgba(45, 49, 77, 0.8);
+    border: 1px solid rgba(172, 177, 214, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+}
+
+.auth-body form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(172, 177, 214, 0.25);
+    outline: none;
+}
+
+.auth-body .helptext {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+}
+
+/* Fix for error lists */
+.auth-body ul {
+    padding-left: 1.25rem;
+    color: #dc3545;
+}
+
+
