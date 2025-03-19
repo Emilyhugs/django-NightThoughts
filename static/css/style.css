@@ -42,11 +42,9 @@
     border-bottom: 1px solid rgba(172, 177, 214, 0.2);
   }
   
-  /* ===== BACKGROUND STARS EFFECT ===== */
   .main-bg {
     position: relative;
-    /* background-color: var(--background-color); */
-     background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
+    background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
   }
   
   /* ===== NAVBAR STYLING ===== */
@@ -308,55 +306,7 @@
   }
   
  /* Alert styling */
- .alert {
-    border-radius: 10px;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    background: var(--background-color); /* Match site background */
-    border: 1px solid rgba(172, 177, 214, 0.3); /* Subtle border */
-    color: var(--text-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: all var(--transition-speed);
-}
 
-.container .alert {
-    background: linear-gradient(135deg, rgba(58, 74, 123, 0.8), rgba(45, 49, 77, 0.9)); /* Match intended alert styling */
-}
-
-.alert a {
-    color: var(--accent-color); /* Accent color for links */
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.alert a:hover {
-    color: var(--text-color); /* Change to text color on hover */
-    text-decoration: none;
-}
-
-.alert-dismissible .btn-close {
-    color: var(--text-color); /* Match the close button color to the theme */
-    opacity: 0.7;
-    filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-.alert-dismissible .btn-close:hover {
-    opacity: 1;
-}
-  /* Links styling */
-  a.link {
-    color: var(--accent-color);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--accent-color);
-    transition: all var(--transition-speed);
-  }
-  
-  a.link:hover {
-    color: var(--text-color);
-    border-bottom: 1px solid var(--text-color);
-  }
-  
   /* Making sure Bootstrap modal components don't get overridden */
   .btn-close {
     opacity: 0.7;
