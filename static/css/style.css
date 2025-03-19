@@ -167,9 +167,8 @@
   }
   
   .btn-primary {
-    background-color: var(--button-primary);
-    border-color: var(--button-primary);
-    /* Remove margin-left to prevent button from going off-screen */
+    background-color: var(--button-primary)!important;
+    border-color: var(--button-primary)!important;
   }
   
   .btn-primary:hover, .btn-primary:focus {

@@ -1,9 +1,9 @@
-const editButtons = document.querySelectorAll(".btn-edit");
+/* jshint esversion: 6 */
+
 const thoughtText = document.getElementById("id_content");
 const thoughtForm = document.getElementById("thoughtForm");
 const submitButton = document.getElementById("submitButton");
 const modalTitle = document.getElementById("modalTitle");
-const addThoughtButton = document.getElementById("addThoughtButton");
 const categoryField = document.getElementById("id_category"); // Category field in modal
 
 document.addEventListener("DOMContentLoaded", function () {
