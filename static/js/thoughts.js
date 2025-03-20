@@ -90,3 +90,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 5000); // Adjust the time (5000 ms = 5 seconds) as needed
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const usernameInput = document.getElementById("id_username") || document.getElementById("id_login");
+    if (usernameInput) {
+      usernameInput.focus();
+    }
+  });
