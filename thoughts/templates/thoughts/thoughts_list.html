@@ -35,8 +35,7 @@
 </div>
 
             <!-- End of Modal -->
-            
-                    {% if thoughts %}
+            {% if thoughts %}
                     <div class="col-12 mt-3">
                         <div class="row">
                             {% for thought in thoughts %}
@@ -50,12 +49,14 @@
                                                     &nbsp;
                                                 {% endif %} </h5>
                                         <p class="card-text"id="thoughtContent{{ thought.id }}">{{ thought.content }}</p>
+                                        <div class="card-footer-wrapper">
                                         <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
                                   thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
                                   <button class="btn btn-danger btn-delete" thought_id="{{ thought.id }}">Delete <i class="fa-solid fa-trash"></i></button>
                                 {% endif %}
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +67,7 @@
                         {% endfor %}
                     </div>
                 </div>
+                      
 
                 {% if is_paginated %}
                     <nav aria-label="Page navigation">
