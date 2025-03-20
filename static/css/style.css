@@ -44,7 +44,8 @@
   
   .main-bg {
     position: relative;
-    background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
+    background:linear-gradient(to bottom, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%);
+    /* background: radial-gradient(ellipse at center, rgba(5, 10, 22, 0.8) 0%, rgba(26, 27, 46, 0.9) 100%); */
   }
   
   /* ===== NAVBAR STYLING ===== */
@@ -110,12 +111,19 @@
   
   /* ===== CONTAINER AND BUTTON POSITIONING ===== */
 
-  /* Center the Add New Thought button */
+  /* Center the Add New Thought button and No thoughts added yet text */
   .btn-primary.mb-4 {
     display: block;
     margin: 0 auto 1.5rem auto; /* Center horizontally with margin bottom */
     width: auto; /* Let the button size to its content */
   }
+
+  .no-thoughts-message {
+    font-size: 1.5rem; /* Increase the font size */
+    text-align: center; /* Center the text horizontally */
+    margin-top: 5rem; /* Add more space above the message */
+    color: var(--muted-text); /* Use the muted text color */
+}
    /* ===== BUTTONS STYLING ===== */
    .btn {
     border-radius: 20px;
@@ -126,15 +134,15 @@
   }
   
   .btn-primary {
-    background-color: var(--button-primary)!important;
-    border-color: var(--button-primary)!important;
+    background-color: var(--button-primary);
+    border-color: var(--button-primary);
   }
-  
   .btn-primary:hover, .btn-primary:focus {
     background-color: var(--button-hover);
     border-color: var(--button-hover);
   }
   
+
   .btn-edit {
     background-color: var(--button-edit);
     border-color: var(--button-edit);
