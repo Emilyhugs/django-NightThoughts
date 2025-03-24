@@ -16,22 +16,21 @@ function resetForm() {
     submitButton.innerText = "Save Thought";
     thoughtForm.setAttribute("action", "/create/");
 }
-
+ // Reset form when modal is hidden to prevent state persistence. Without this there would be issues with aria attributes and focus which is misleading for screen-reader users.
 document.addEventListener("DOMContentLoaded", function () {
-    // Reset form when modal is hidden to prevent state persistence
     const addThoughtModal = document.getElementById('addThoughtModal');
     if (addThoughtModal) {
         addThoughtModal.addEventListener('hidden.bs.modal', function () {
             resetForm();
         });
     }
-
+// Delay to ensure focus is removed after modal is hidden.
     document.addEventListener('hide.bs.modal', function (event) {
         setTimeout(() => {
             if (document.activeElement) {
                 document.activeElement.blur();
             }
-        }, 10); // Small delay to allow the modal updates to happen first
+        }, 10); 
     });
 });
 
@@ -48,16 +47,17 @@ document.addEventListener("click", (e) => {
         const thoughtCategory = document.getElementById(`thoughtCategory${thoughtId}`);
         const thoughtMood = document.getElementById(`thoughtMood${thoughtId}`);
 
+//This bit of code pre-fills the textbox and category when the user is editing a thought.
         if (thoughtContent) {
-            thoughtText.value = thoughtContent.innerText; // Prefill thought text
+            thoughtText.value = thoughtContent.innerText; 
         }
         if (thoughtCategory && categoryField) {
             categoryField.value = thoughtCategory.innerText.trim(); // Prefill category
         }
-      // Add this block to pre-fill the mood
+      // This bit of code pre-fills the mood when the user is editing a thought.
     const moodField = document.getElementById("id_mood");
     if (thoughtMood && moodField) {
-        moodField.value = thoughtMood.value; // Prefill mood
+        moodField.value = thoughtMood.value;
     }
         modalTitle.innerText = "Edit Thought";
         submitButton.innerText = "Update";
@@ -81,7 +81,7 @@ document.addEventListener("click", (e) => {
         // Reset form to ensure clean state
         resetForm();
     }
-    // For delete buttons
+    // This gets the delete modal when you click the delete button
     else if (e.target.classList.contains("btn-delete")) {
         let thoughtId = e.target.getAttribute("thought_id");
         document.getElementById("deleteConfirm").href = `/delete/${thoughtId}/`;
@@ -91,7 +91,7 @@ document.addEventListener("click", (e) => {
 });
 
 
-///Function to close the alert after 5 seconds otherwise it will stay there until the user clicks it. 
+///Function to close the alert after 5 seconds otherwise it will stay there until the user clicks it - bad ux. 
 
 document.addEventListener("DOMContentLoaded", function() {
     // Select all alerts with the class .alert
