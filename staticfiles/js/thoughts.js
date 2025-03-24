@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Reset form when modal is hidden
         addThoughtModal.addEventListener('hidden.bs.modal', resetForm);
 
-        addThoughtModal.addEventListener("shown.bs.modal", () => {
-            if (thoughtText) {
-                setTimeout(() => {
+            // Ensure focus on text area when modal is shown
+            addThoughtModal.addEventListener('shown.bs.modal', () => {
+                if (thoughtText) {
                     thoughtText.focus();
-                }, 200); // Small delay ensures it works on mobile
-            }
-        });
-    }
+                }
+            });
+        }
+       
        // Delay to ensure focus is removed after modal is hidden
        document.addEventListener('hide.bs.modal', function (event) {
         setTimeout(() => {
