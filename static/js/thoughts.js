@@ -46,6 +46,7 @@ document.addEventListener("click", (e) => {
         const thoughtId = e.target.getAttribute("thought_id");
         const thoughtContent = document.getElementById(`thoughtContent${thoughtId}`);
         const thoughtCategory = document.getElementById(`thoughtCategory${thoughtId}`);
+        const thoughtMood = document.getElementById(`thoughtMood${thoughtId}`);
 
         if (thoughtContent) {
             thoughtText.value = thoughtContent.innerText; // Prefill thought text
@@ -53,10 +54,11 @@ document.addEventListener("click", (e) => {
         if (thoughtCategory && categoryField) {
             categoryField.value = thoughtCategory.innerText.trim(); // Prefill category
         }
-      
-     
-
-    
+      // Add this block to pre-fill the mood
+    const moodField = document.getElementById("id_mood");
+    if (thoughtMood && moodField) {
+        moodField.value = thoughtMood.value; // Prefill mood
+    }
         modalTitle.innerText = "Edit Thought";
         submitButton.innerText = "Update";
         thoughtForm.setAttribute("action", `/update/${thoughtId}/`);

@@ -40,7 +40,7 @@
                         <div class="row">
                             {% for thought in thoughts %}
                                 <div class="col-md-6 mb-4">
-                                    <div class="card thought-card thought-content" id="thought{{ thought.id }}">
+                                    <div class="card thought-card thought-content {% if thought.mood %}mood-{{ thought.mood }}{% endif %}"" id="thought{{ thought.id }}">
                                         <div class="card-body">
                                             <h5 class="card-title border-effect" id="thoughtCategory{{ thought.id }}">
                                                 {% if thought.category %}
@@ -49,6 +49,7 @@
                                                     &nbsp;
                                                 {% endif %} </h5>
                                         <p class="card-text"id="thoughtContent{{ thought.id }}">{{ thought.content }}</p>
+                                        <input type="hidden" id="thoughtMood{{ thought.id }}" value="{{ thought.mood }}">
                                         <div class="card-footer-wrapper">
                                         <small class="text-muted created-at" >Created on {{ thought.created_at|date:"F j, Y, g:i A" }}</small> <br>
                                         <small class="text-muted updated-at"style="display: none;">Updated on {{ thought.updated_at|date:"F j, Y, g:i A"  }}</small>

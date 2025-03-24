@@ -100,13 +100,12 @@
     0%, 100% {
       opacity: 0.9;
       transform: scale(1);
-      text-shadow:8px 2px rgba(172, 177, 214, 0.3);
+
     }
     50% {
       opacity: 1;
       transform: scale(1.03);
-      text-shadow: 0 0 15px rgba(172, 177, 214, 0.5);
-    }
+       }
   }
   
   /* ===== CONTAINER AND BUTTON POSITIONING ===== */
@@ -189,8 +188,8 @@
   }
   
   .thought-card:hover {
-    transform: transla8px 2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translate(8px, 2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) 0.3s ease-in-out;
   }
   
   .card-body {
@@ -227,29 +226,26 @@
     align-items: center;
     margin-top: auto;
   }
-  /* Default card style */
-.thought-card {
-  transition: box-shadow 0.3s ease-in-out;
-}
+
 
 /* Mood-specific glows */
-.mood-happy {
+.mood-happy:hover {
   box-shadow: 0 0 8px 2px rgba(234, 184, 109, 0.8); /* Yellow glow */
 }
 
-.mood-sad{
+.mood-sad:hover{
   box-shadow: 0 0 8px 2px rgba(106, 127, 155, 0.5); /* Blue glow */
 }
 
-.mood-angry{
+.mood-angry:hover{
   box-shadow: 0 0 8px 2px rgba(162,96,110, 0.7); /* Red glow */
 }
 
-.mood-anxious {
+.mood-anxious:hover {
   box-shadow: 0 0 8px 2px rgba(184, 166, 209, 0.8); /* Purple glow */
 }
 
-.mood-neutral {
+.mood-neutral:hover {
   box-shadow: 0 0 8px 2px rgba(128, 128, 128, 0.7); /* Gray glow */
 }
   /* ===== PAGINATION STYLING ===== */
