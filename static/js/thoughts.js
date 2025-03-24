@@ -12,6 +12,12 @@ function resetForm() {
     if (categoryField) {
         categoryField.value = "";
     }
+       
+    // Reset mood field
+    const moodField = document.getElementById("id_mood");
+    if (moodField) {
+        moodField.value = ""; // Reset to default or empty
+    }
     modalTitle.innerText = "What's on your mind?";
     submitButton.innerText = "Save Thought";
     thoughtForm.setAttribute("action", "/create/");
