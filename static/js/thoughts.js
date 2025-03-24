@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Use a single event listener with event delegation
+/// Use a single event listener with event delegation.This event listener is for the edit button. It then dynamically sets up the modal for editing.
 document.addEventListener("click", (e) => {
     // For edit buttons
     if (e.target.classList.contains("btn-edit")) {
@@ -54,10 +54,24 @@ document.addEventListener("click", (e) => {
             categoryField.value = thoughtCategory.innerText.trim(); // Prefill category
         }
 
+    
         modalTitle.innerText = "Edit Thought";
         submitButton.innerText = "Update";
         thoughtForm.setAttribute("action", `/update/${thoughtId}/`);
-    } 
+
+    // Ensure that the modal is open and then focus on the textbox for both editing and adding thoughts. 
+    const addThoughtModal = document.getElementById("addThoughtModal");
+    const bootstrapModal = bootstrap.Modal.getInstance(addThoughtModal) || new bootstrap.Modal(addThoughtModal);
+
+    bootstrapModal.show(); // Ensure the modal is shown
+    addThoughtModal.addEventListener("shown.bs.modal", () => {
+        if (thoughtText) {
+            thoughtText.focus(); // Focus the textbox (input/textarea) after the modal is fully rendered
+        }
+    });
+}
+
+
     // For add button
     else if (e.target.id === "addThoughtButton" || e.target.closest("#addThoughtButton")) {
         // Reset form to ensure clean state
@@ -73,7 +87,7 @@ document.addEventListener("click", (e) => {
 });
 
 
-///Function to close the alert after 5 seconds otherwise it will stay there until the user clicks it
+///Function to close the alert after 5 seconds otherwise it will stay there until the user clicks it. 
 
 document.addEventListener("DOMContentLoaded", function() {
     // Select all alerts with the class .alert
