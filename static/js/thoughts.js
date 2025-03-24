@@ -72,6 +72,9 @@ document.addEventListener("click", (e) => {
     }
 });
 
+
+///Function to close the alert after 5 seconds otherwise it will stay there until the user clicks it
+
 document.addEventListener("DOMContentLoaded", function() {
     // Select all alerts with the class .alert
     const alerts = document.querySelectorAll('.alert');
@@ -90,9 +93,36 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 5000); // Adjust the time (5000 ms = 5 seconds) as needed
     });
 });
+
+///Function to focus on the username input field when the page loads for better UI experience
 document.addEventListener("DOMContentLoaded", function () {
     const usernameInput = document.getElementById("id_username") || document.getElementById("id_login");
     if (usernameInput) {
       usernameInput.focus();
     }
   });
+
+/// Function to show updated at value when the user updates the thought
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all thought cards
+    const thoughtCards = document.querySelectorAll(".thought-card");
+
+    thoughtCards.forEach(function (card) {
+        // Get the created-at and updated-at elements within the card
+        const createdAtElement = card.querySelector(".created-at");
+        const updatedAtElement = card.querySelector(".updated-at");
+
+        if (createdAtElement && updatedAtElement) {
+            // Parse the text content of the created-at and updated-at elements into Date objects
+            const createdAt = new Date(createdAtElement.textContent);
+            const updatedAt = new Date(updatedAtElement.textContent);
+
+            // Check if updated_at is different from created_at
+            if (updatedAt > createdAt) {
+                createdAtElement.style.display = "none"; // Hide the created-at element if updated
+                updatedAtElement.style.display = "block"; // Show the updated-at element
+            } else {
+                updatedAtElement.style.display = "none"; // Hide the updated-at element if not updated
+            }
+        }
+    });});

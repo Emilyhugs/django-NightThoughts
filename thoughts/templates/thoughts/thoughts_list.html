@@ -50,10 +50,8 @@
                                                 {% endif %} </h5>
                                         <p class="card-text"id="thoughtContent{{ thought.id }}">{{ thought.content }}</p>
                                         <div class="card-footer-wrapper">
-                                        <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y, g:i A" }}</small>
-                                        {% if thought.updated_at != thought.created_at %}
-                                        <small class="text-muted">Last updated on {{ thought.updated_at|date:"F j, Y, g:i A" }}</small>
-                                        {% endif %}
+                                        <small class="text-muted created-at" >Created on {{ thought.created_at|date:"F j, Y, g:i A" }}</small> <br>
+                                        <small class="text-muted updated-at"style="display: none;">Updated on {{ thought.updated_at|date:"F j, Y, g:i A"  }}</small>
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
                                   thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
