@@ -20,7 +20,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">What's on your mind?</h5>
+                <h5 class="modal-title" id="modalTitle">What's on your mind?</canvas></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -50,7 +50,10 @@
                                                 {% endif %} </h5>
                                         <p class="card-text"id="thoughtContent{{ thought.id }}">{{ thought.content }}</p>
                                         <div class="card-footer-wrapper">
-                                        <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y" }}</small>
+                                        <small class="text-muted">Created on {{ thought.created_at|date:"F j, Y, g:i A" }}</small>
+                                        {% if thought.updated_at != thought.created_at %}
+                                        <small class="text-muted">Last updated on {{ thought.updated_at|date:"F j, Y, g:i A" }}</small>
+                                        {% endif %}
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
                                   thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
