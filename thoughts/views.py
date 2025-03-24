@@ -66,6 +66,3 @@ def delete_thought(request, thought_id):
     except Exception as e:
         messages.add_message(request, messages.ERROR, 'Error deleting thought')
     return HttpResponseRedirect(reverse("home"))
-
-def voice_recognition_view(request):
-    return render(request, 'voice_recognition.html')
