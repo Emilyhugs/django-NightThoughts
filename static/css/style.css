@@ -136,9 +136,13 @@
     background-color: var(--button-primary);
     border-color: var(--button-primary);
   }
-  .btn-primary:hover, .btn-primary:focus {
-    background-color: var(--button-hover);
-    border-color: var(--button-hover);
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active,
+  .btn-primary:focus-visible {
+      background-color: var(--button-hover) !important;
+      border-color: var(--button-hover) !important;
+      box-shadow: none !important;
   }
   
 
@@ -303,7 +307,7 @@
     background-color: var(--modal-bg);
     border-radius: 15px;
     border: 1px solid rgba(172, 177, 214, 0.2);
-    box-shado8px 2px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 8px 2px 15px rgba(0, 0, 0, 0.5);
   }
   
   .modal-header {
@@ -429,7 +433,7 @@
 }
 
 .auth-card:hover {
-    transform: transla8px 2px);
+    transform: translate(8px, 2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 

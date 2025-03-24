@@ -150,3 +150,74 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });});
+
+  //This is a function to add voice input to the thought textarea. It uses the generic Web Speech API to convert speech to text.
+
+document.addEventListener('DOMContentLoaded', () => {
+    const startVoiceInputBtn = document.getElementById('start-voice-input');
+    const thoughtTextarea = document.getElementById('id_content');
+    const voiceStatus = document.getElementById('voice-status');
+
+    // Check browser support
+    if (!('webkitSpeechRecognition' in window)) {
+        if (startVoiceInputBtn) {
+            startVoiceInputBtn.disabled = true;
+            voiceStatus.textContent = 'Speech recognition not supported';
+        }
+        return;
+    }
+
+    // Create speech recognition instance
+    const recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    // Voice input button click handler
+    startVoiceInputBtn.addEventListener('click', () => {
+        try {
+            recognition.start();
+            startVoiceInputBtn.disabled = true;
+            voiceStatus.textContent = 'Listening...';
+            startVoiceInputBtn.innerHTML = '<i class="fa-solid fa-microphone-lines"></i> Listening';
+        } catch (e) {
+            voiceStatus.textContent = 'Error starting voice input';
+            console.error(e);
+        }
+    });
+
+    // Speech recognition result handler
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        
+        // Append or replace based on current content
+        if (thoughtTextarea.value) {
+            thoughtTextarea.value += ' ' + transcript;
+        } else {
+            thoughtTextarea.value = transcript;
+        }
+
+        // Reset UI
+        voiceStatus.textContent = 'Your thought has been added';
+        startVoiceInputBtn.disabled = false;
+        startVoiceInputBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    };
+
+    // Handle errors
+    recognition.onerror = (event) => {
+        voiceStatus.textContent = 'Error: ' + event.error;
+        startVoiceInputBtn.disabled = false;
+        startVoiceInputBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+    };
+
+    // Handle end of speech recognition
+    recognition.onend = () => {
+        startVoiceInputBtn.disabled = false;
+        startVoiceInputBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+        
+        // Clear status after a few seconds
+        setTimeout(() => {
+            voiceStatus.textContent = '';
+        }, 3000);
+    };
+});
