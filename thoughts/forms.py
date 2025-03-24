@@ -5,4 +5,4 @@ from django import forms
 class ThoughtForm(forms.ModelForm):
     class Meta:
         model = Thought
-        fields =['category','content',]
+        fields =['category','mood','content',]

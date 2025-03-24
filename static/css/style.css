@@ -15,8 +15,8 @@
     --button-primary: #6373b3;
     --button-hover: #7a8aca;
     --button-edit: #5a84a2;
-    --button-danger: #a25a6e;
-    --button-danger-hover: #b6677c;
+    --button-danger: rgb(162, 90, 110);
+    --button-danger-hover: rgb(182, 103, 124);
     --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     --modal-bg: #2d314d;
     --modal-header: #252842;
@@ -100,7 +100,7 @@
     0%, 100% {
       opacity: 0.9;
       transform: scale(1);
-      text-shadow: 0 0 5px rgba(172, 177, 214, 0.3);
+      text-shadow:8px 2px rgba(172, 177, 214, 0.3);
     }
     50% {
       opacity: 1;
@@ -127,7 +127,7 @@
    /* ===== BUTTONS STYLING ===== */
    .btn {
     border-radius: 20px;
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1.2rem;
     font-weight: 400;
     transition: all var(--transition-speed);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -189,7 +189,7 @@
   }
   
   .thought-card:hover {
-    transform: translateY(-5px);
+    transform: transla8px 2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   }
   
@@ -227,6 +227,31 @@
     align-items: center;
     margin-top: auto;
   }
+  /* Default card style */
+.thought-card {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Mood-specific glows */
+.mood-happy {
+  box-shadow: 0 0 8px 2px rgba(234, 184, 109, 0.8); /* Yellow glow */
+}
+
+.mood-sad{
+  box-shadow: 0 0 8px 2px rgba(106, 127, 155, 0.5); /* Blue glow */
+}
+
+.mood-angry{
+  box-shadow: 0 0 8px 2px rgba(162,96,110, 0.7); /* Red glow */
+}
+
+.mood-anxious {
+  box-shadow: 0 0 8px 2px rgba(184, 166, 209, 0.8); /* Purple glow */
+}
+
+.mood-neutral {
+  box-shadow: 0 0 8px 2px rgba(128, 128, 128, 0.7); /* Gray glow */
+}
   /* ===== PAGINATION STYLING ===== */
   .pagination {
     margin-top: 2rem;
@@ -282,7 +307,7 @@
     background-color: var(--modal-bg);
     border-radius: 15px;
     border: 1px solid rgba(172, 177, 214, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shado8px 2px 15px rgba(0, 0, 0, 0.5);
   }
   
   .modal-header {
@@ -408,7 +433,7 @@
 }
 
 .auth-card:hover {
-    transform: translateY(-5px);
+    transform: transla8px 2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 

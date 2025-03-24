@@ -53,6 +53,8 @@ document.addEventListener("click", (e) => {
         if (thoughtCategory && categoryField) {
             categoryField.value = thoughtCategory.innerText.trim(); // Prefill category
         }
+      
+     
 
     
         modalTitle.innerText = "Edit Thought";
