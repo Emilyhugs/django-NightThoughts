@@ -61,8 +61,8 @@
                                         <small class="text-muted updated-at" style="display: none;">Updated on {{ thought.updated_at|date:"F j, Y, g:i A"  }}</small>
                                         {% if user.is_authenticated and thought.user == user %}
                                 <button class="btn btn-edit"
-                                  data-thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
-                                  <button class="btn btn-danger btn-delete" data-thought_id="{{ thought.id }}">Delete<i class="fa-solid fa-trash"></i>
+                                  thought_id="{{ thought.id }}" data-bs-toggle="modal" data-bs-target="#addThoughtModal">Update <i class="fa-solid fa-pen"></i></button>
+                                  <button class="btn btn-danger btn-delete" thought_id="{{ thought.id }}">Delete<i class="fa-solid fa-trash"></i>
                                   </button>
                                 {% endif %}
                                        </div>
