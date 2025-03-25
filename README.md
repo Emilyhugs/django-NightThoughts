@@ -95,9 +95,11 @@ The wireframes for this project have been created using [Balsamiq](https://balsa
 
 **ERD**
 I created the ERD with ([Lucid.app](https://www.lucid.app)).
+I actually updated the thought model to include a mood category because I wanted the website to be responsive to the user's moods. 
+
 ![ERD](static/images/model-databases.png)
 
-I actually updated the thought model to include a mood category because I wanted the website to be responsive to the user's moods. 
+
 
 - **Design Rationale:**
   - The layout emphasises simplicity and readability, with Bootstrap 5 providing a responsive design. I didn't want there to be any features that would engage the user too much and distract them from sleep. 
