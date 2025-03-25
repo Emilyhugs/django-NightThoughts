@@ -1,5 +1,5 @@
 # django-NightThoughts
-
+![Website layout](static/images/website-layout.png)
 # Overview
 This project is a journal web application built with the python-based framework Django. The front-end is HTML & CSS, Javascipt & also encorporates the Bootstrap 5 framework. There is full CRUD functionality as users can create, read, update, and delete their thoughts. The application differs from an ordinary journalling app because it is specifically designed to help users clear their mind before sleep in order to encourage mental decluttering, reduce overthinking & nighttime anxiety, but also to have a place for those genius thoughts/ideas we seem to get at night-time when our brain enters a more creative mode.
 
