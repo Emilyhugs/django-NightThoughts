@@ -18,6 +18,7 @@ The live project can found here: <a href="https://emily-django-nightthoughts-a6d
     - [Wireframes](#wireframes)
      - [Colors](#colors)
     - [Fonts](#fonts)
+    - [Logo Design](#logo-design)
 - [Key Features](#key-features)
   - [User Authentication](#user-authentication)
   - [Write Thoughts](#write-thoughts)
@@ -90,34 +91,35 @@ The About app is visible in the admin panel
 # Wireframes
 The wireframes for this project have been created using [Balsamiq](https://balsamiq.com/). They show the key features (the thought list) that guided me when creating the website & ensuring responsiveness across different screen sizes, an especially important feature because it is more likely for users to be accessing the site on their phone before they sleep rather than a tablet or computer. 
 
+![Computer & Mobile phone Wireframe](static/images/NightThoughts.png)
+
 **ERD**
 I created the ERD with ([Lucid.app](https://www.lucid.app)).
 ![ERD](static/images/model-databases.png)
 
 I actually updated the thought model to include a mood category because I wanted the website to be responsive to the user's moods. 
 
-![Computer & Mobile phone Wireframe](static/images/NightThoughts.png)
 - **Design Rationale:**
   - The layout emphasises simplicity and readability, with Bootstrap 5 providing a responsive design. I didn't want there to be any features that would engage the user too much and distract them from sleep. 
-  # colours
+  # Colours
   These are the colours I chose for the project because they are muted and calming for a nighttime journalling app.
   ![Colour palette](static/images/palette.png)
-  The colour scheme adheres to WCAG guidelines for contrast, and. I needed to make sure there was sufficient colour contrast but also not have colours which were too bright and that would keep the users awake.
+  The colour scheme adheres to WCAG guidelines for contrast. I needed to make sure there was sufficient colour contrast but also not have colours which were too bright and that would keep the users awake.
 
   To test that the colours are accessible for the users, I checked with [Colour Contrast Checker](https://colourcontrast.cc/)(also available as extension on Chrome Web Store) for the main component of the thought card background colour and the text colour.
    ![Colour Contrast Checker](static/images/colour-contrast.png)
 
-# fonts
+# Fonts
   
    The typography I used for the project are Playfair Display for the headings and Karla for the thought text. Playfair Display is a serif font which is slightly less accessible but it is suitable for a journal project so I think it is a reasonable choice. Karla is a sans-serif font which is easy to read and gentle, allowing for a better & accessible user experience when reading & reflecting on their thoughts. 
 
   - Accessibility considerations include screen reader support, ensuring usability for users with diverse needs. 
 
-  **Logo Design**
-  I asked [Canva](https://www.canva.com/) to generate a logo/favicon. Initially my design was too complicated so I had to simplify it. I wanted it to have the appearance of the moon but with lines of a journal on the side. The middle image here is the one I chose because it is more sleek but I had to make the background transparent before using it. 
+  # Logo Design
+  I asked [Canva](https://www.canva.com/) to generate a logo/favicon. Initially my design was too complicated so I had to simplify it. I wanted it to have the appearance of the moon but with lines of a journal on the side. The middle image here is the one I chose because it is more sleek and stands out. However, I had to make the background transparent before using it. 
   ![Logo design](static/images/logo-design-ideas.png)
   
- <p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
 <br>
 
 
