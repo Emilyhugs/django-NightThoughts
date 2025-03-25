@@ -235,6 +235,6 @@ I found it harder to validate/run throught the javascript because different lint
 ## Credits
 I would like to credit Code Institute's CodeStar walkthrough blog. It was invaluable for following along and making sure that I set up my project succesfully. 
 
-I also have to credit Chat GPT & Claude for code generation/fixing.
+I also have to credit Chat GPT & Claude for code generation/fixing, and canva for generating the logo. 
 <p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
