@@ -201,7 +201,7 @@ Using AI in this project has been beneficial for learning, problem-solving and a
   - **Devices and Browsers Tested:** I tested the site on my macbook pro and my iphone throughout to check that the app was functioning as I wanted it to and to see if there were any obvious bugs I needed to fix. 
 
   - **Assistive Technologies:** I tested the site using Lighthouse in the Developer Tools. These are the scores that I got. 
-  They mostly suffer due to loading times of some of the elements but they are fairly decent. However, given more time I would work on improving the scores.
+  They mostly suffer due to loading times of some of the elements, such as the breathing effect on the title constantly updating, but they are fairly decent. However, given more time I would work on improving the scores, especially since the mobile score suffered more and that is where I need to focus. 
 ![Lighthouse scores](static/images/lighthouse-computer.png) 
 ![Lighthouse scores](static/images/lighthouse-mobile.png)
 
@@ -211,11 +211,13 @@ The html-errors are likely because I need to change the thought-id to data-thoug
 ![HTML Validation](static/images/html-errors.png)
 
 Next I used [CCS validation](https://jigsaw.w3.org/css-validator/)
-There were initially some errors but I managed to fix them.
+There were initially some errors with the button border colour being the same as the button but I managed to change the colour to eliminate that issue.
 ![CSS Validation](static/images/css-validation.png)
 
 I also ran my views.py file through [Code Institute's pep8 standards linter](https://pep8ci.herokuapp.com/)
 ![Python Lint](static/images/python-lint.png)
+
+I found it harder to validate/run throught the javascript because different lint tools online gave varying responses. However, throughout the project I used console.log to check for errors. 
 
   - **Features Tested:** CRUD operations, user authentication, responsive design, and accessibility features.
   - **Results:** All critical features, including accessibility checks, worked as expected.
