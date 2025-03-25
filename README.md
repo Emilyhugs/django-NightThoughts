@@ -32,7 +32,7 @@ The live project can found here: <a href="https://emily-django-nightthoughts-a6d
 - [Future Enhancements](#future-enhancements)
 - [Credits](#credits)
 
-<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
 
 ## UX Design
@@ -119,7 +119,7 @@ I actually updated the thought model to include a mood category because I wanted
   I asked [Canva](https://www.canva.com/) to generate a logo/favicon. Initially my design was too complicated so I had to simplify it. I wanted it to have the appearance of the moon but with lines of a journal on the side. The middle image here is the one I chose because it is more sleek and stands out. However, I had to make the background transparent before using it. 
   ![Logo design](static/images/logo-design-ideas.png)
   
-<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
 
 
@@ -145,8 +145,9 @@ Another additional feature was to make the thought cards' borders glow with diff
 - **Inclusivity Notes:** 
   - Features include ARIA labels for screen readers. This app doesn't have images so I didn't need to worry about 'alt' tags. 
 
-<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
+
 
 ## Deployment
 - **Platform:** Heroku
@@ -162,8 +163,9 @@ Another additional feature was to make the thought cards' borders glow with diff
   - Sensitive data is stored in environment variables.
   - DEBUG mode is disabled in the production environment to enhance security.
 
-  <p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
+
 
   ## AI Implementation and Orchestration
 
@@ -186,7 +188,7 @@ While AI has been a highly useful tool, it is important that I note its limitati
 Using AI in this project has been beneficial for learning, problem-solving and asking for suggestions or ideas. However, I need to remember to keep critically evaluating AI's suggestions and use them as a supplementary tool rather than relying on them entirely.
 
 
-<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
 <br>
 
 # Testing
@@ -228,3 +230,5 @@ I also ran my views.py file through [Code Institute's pep8 standards linter](htt
 I would like to credit Code Institute's CodeStar walkthrough blog. It was invaluable for following along and making sure that I set up my project succesfully. 
 
 I also have to credit Chat GPT & Claude for code generation/fixing.
+<p align="right"><a href="#django-Nightthoughts">Back To Top</a></p>
+<br>
