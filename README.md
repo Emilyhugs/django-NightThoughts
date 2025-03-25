@@ -18,23 +18,27 @@ The live project can found here: <a href="https://emily-django-nightthoughts-a6d
     - [Wireframes](#wireframes)
      - [Colors](#colors)
     - [Fonts](#fonts)
-- [Features](#features)
-  - [Navbar](#navbar)
+- [Key Features](#key-features)
+  - [User Authentication](#user-authentication)
   - [Write Thoughts](#write-thoughts)
   - [Edit and Delete Thoughts](#edit-and-delete-thoughts)
   - [Voice Recording](#voice-recording)
    - [Mood Responsive](#mood-responsive)
   - [Footer](#footer)
 - [Deployment](#deployment)
-- [Testing](#testing)
 - [AI Implementation and Orchestration](#ai-implementation-and-orchestration)
+- [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
+- [Credits](#credits)
 
+<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<br>
 
 ## UX Design
 # User stories
+I used an agile workflow for the project. First I created user stories in the issues in order to set up small, achievable and precise tasks following my project board. Some of them were generated using Co-pilot, Chat GPT, but I also asked family and friends for their input on what they would like to see in a night-time journalling app. The MoSCow system was helpful for me to focus on getting an mvp created by focusing on getting the must-have's done. 
 
-You can also view the user stories in the [GitHub Projects Kanban Board](https://github.com/username/project/kanban).
+Here are the user stories: (You can also view the user stories in the [GitHub Projects Kanban Board](https://github.com/users/Emilyhugs/projects/10/views/1) for this website.)
 1) As a site user, I want to log in so that only I can access my page.
 
 ✅ Acceptance Criteria:
@@ -90,6 +94,8 @@ The wireframes for this project have been created using [Balsamiq](https://balsa
 I created the ERD with ([Lucid.app](https://www.lucid.app)).
 ![ERD](static/images/model-databases.png)
 
+I actually updated the thought model to include a mood category because I wanted the website to be responsive to the user's moods. 
+
 ![Computer & Mobile phone Wireframe](static/images/NightThoughts.png)
 - **Design Rationale:**
   - The layout emphasises simplicity and readability, with Bootstrap 5 providing a responsive design. I didn't want there to be any features that would engage the user too much and distract them from sleep. 
@@ -103,7 +109,7 @@ I created the ERD with ([Lucid.app](https://www.lucid.app)).
 
 # fonts
   
-   The typography I used for the project are Playfair Display for the headings and Karla for the thought text. Playfair Display is a serif font which is slightly less accessible but it is suitable for a journal project. Karla is easy to read and gentle, allowing for a better & accessible user experience when reading their thoughts. 
+   The typography I used for the project are Playfair Display for the headings and Karla for the thought text. Playfair Display is a serif font which is slightly less accessible but it is suitable for a journal project so I think it is a reasonable choice. Karla is a sans-serif font which is easy to read and gentle, allowing for a better & accessible user experience when reading & reflecting on their thoughts. 
 
   - Accessibility considerations include screen reader support, ensuring usability for users with diverse needs. 
 
@@ -111,13 +117,34 @@ I created the ERD with ([Lucid.app](https://www.lucid.app)).
   I asked [Canva](https://www.canva.com/) to generate a logo/favicon. Initially my design was too complicated so I had to simplify it. I wanted it to have the appearance of the moon but with lines of a journal on the side. The middle image here is the one I chose because it is more sleek but I had to make the background transparent before using it. 
   ![Logo design](static/images/logo-design-ideas.png)
   
+ <p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<br>
 
 
 ## Key Features
-- **Thoughts Management:** Create, view, update, and delete thoughts with ease.
-- **User Authentication:** Secure login/logout functionality for managing user access. Obviously, privacy is very important because the users are writing down their personal thoughts.
+
+# User Authentication
+Obviously, privacy is incredibly important for a journalling app where the user can write their personal thoughts. The purpose of adding user authentication is to ensure that users can securely log in and manage their accounts. It was essential that users were given the option to log in to a personal account so that they can create,review, edit and delete their own thoughts & crucially so that nobody else has access to them (apart from the admin). 
+
+
+# Write Thoughts 
+The main concept of the app is to allow users to write their thoughts down. This is the core functionality and purpose of the site so it is an important feature. The site allows for signed-in users to write their thoughts and choose a content category and mood category. 
+
+# Edit and Delete Thoughts 
+The ability to save, update and delete thoughts allows users to reflect on their thoughts over time and make edits to them if they want to. A delete function is incredibly important for allowing the users to write down and get unwanted thoughts out of their system. The edit feature is also useful for half-thought out ideas and for the comfort that whatever they write doesn't have to be final/set in stone. 
+
+# Voice Recording 
+This is a really awesome function of speech recognition that converts the users' speech into written text. It uses the inbuilt API called Web Speech API which is compatible for on most modern browsers like Chrome & Firefox. For some people it is easier to verbalise thoughts than to write them down so this function increases accessibility in that regard. It is also suitable for those who are about to go to bed & would prefer to spend less time looking at a phone screen.
+
+# Mood Responsive 
+Another additional feature was to make the thought cards' borders glow with different colours depending on the users' selected mood. It adds more dynamicism to the website without being overpowering and it acts as a subtle way for the user to reflect on their mood when they click or touch the card. 
+
+
 - **Inclusivity Notes:** 
-  - Features include ARIA labels and `alt` attributes on images for screen readers.
+  - Features include ARIA labels for screen readers. This app doesn't have images so I didn't need to worry about 'alt' tags. 
+
+<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<br>
 
 ## Deployment
 - **Platform:** Heroku
@@ -133,6 +160,9 @@ I created the ERD with ([Lucid.app](https://www.lucid.app)).
   - Sensitive data is stored in environment variables.
   - DEBUG mode is disabled in the production environment to enhance security.
 
+  <p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<br>
+
   ## AI Implementation and Orchestration
 
 ### Use Cases and Reflections:
@@ -147,32 +177,52 @@ Claude and Chat GPT were really invaluable for suggesting/generating code, parti
 - **Debugging:** 
 There were times where the css/javascript caused bugs in my code and I used AI tools to help me fix these errors. It was much more efficient than manually trying to find answers to the bugs myself or even find answers on Stack Overflow. However, when there was an accessibility issue with the modal keeping the focus on the button even when the modal is hidden, AI struggled to fix that, so I did need to go to Stack Overflow. Overall though, AI tools massively enhanced the efficiency of the project. 
 
+**Observations on AI Usage**
 
-- **Performance and UX Optimization:** 
+While AI has been a highly useful tool, it is important that I note its limitations. There are cases where I have used it for quick fixes without understanding in full detail what it is doing - which could cause to problems if it interferes with other code & later down the line when I need to revisit it. It also gave long-winded and overly complicated ways to fix errors which then takes time with processing speeds when the code runs. 
+**Conclusion**
+Using AI in this project has been beneficial for learning, problem-solving and asking for suggestions or ideas. However, I need to remember to keep critically evaluating AI's suggestions and use them as a supplementary tool rather than relying on them entirely.
 
 
-- **Automated Unit Testing: (If undertaken)**
+<p align="right"><a href="#hackathon1-recipe-finder">Back To Top</a></p>
+<br>
 
-
-### Overall Impact:
+# Testing
 
 - **Manual Testing:**
   - **Devices and Browsers Tested:** I tested the site on my macbook pro and my iphone throughout to check that the app was functioning as I wanted it to and to see if there were any obvious bugs I needed to fix. 
 
   - **Assistive Technologies:** I tested the site using Lighthouse in the Developer Tools. These are the scores that I got. 
-  
-![Lighthouse scores](static/images/lighthouse-computer.png) (static/images/lighthouse-mobile.png)
+  They mostly suffer due to loading times of some of the elements but they are fairly decent. However, given more time I would work on improving the scores.
+![Lighthouse scores](static/images/lighthouse-computer.png) 
+![Lighthouse scores](static/images/lighthouse-mobile.png)
 
+I also used [HTML validation](https://validator.w3.org/) to check my HTML.
+The html-errors are likely because I need to change the thought-id to data-thought-id because it is a data attribute, but I didn't have time to change that and then make the corresponding edit in the javascript file. However, it does seem to be a relatively easy fix. 
+![HTML Validation](static/images/html-validation.png)
+![HTML Validation](static/images/html-errors.png)
+
+Next I used [CCS validation](https://jigsaw.w3.org/css-validator/)
+There were initially some errors but I managed to fix them.
+![CSS Validation](static/images/css-validation.png)
+
+I also ran my views.py file through [Code Institute's pep8 standards linter](https://pep8ci.herokuapp.com/)
+![Python Lint](static/images/python-lint.png)
 
   - **Features Tested:** CRUD operations, user authentication, responsive design, and accessibility features.
   - **Results:** All critical features, including accessibility checks, worked as expected.
-- **Automated Testing:(If undertaken)**
-  - Tools Used: Django TestCase, GitHub Copilot.
-  - Features Covered: CRUD operations, user authentication, and accessibility compliance.
-  - Adjustments Made: Additional manual modifications to ensure comprehensive test coverage and inclusivity.
+- **Automated Testing:**
+  - Tools Used: Django TestCase & Chat GPT
+
+  I asked CHATGPT to write unit tests for the views which covers the CRUD operations. These can be found in the thoughts/tests.py file. 
 
 ## Future Enhancements
 - Add an about page where the admin can post blogs about sleeping tips. 
 - Build multilingual support for non-English-speaking users.
-- Learn how to build or integrate analytics for tracking user engagement with notices.
+- Learn how to build or integrate analytics for tracking user's moods.
+- Implement open AI to read and summarize the users' thoughts & helping them to reflect. 
 
+## Credits
+I would like to credit Code Institute's CodeStar walkthrough blog. It was invaluable for following along and making sure that I set up my project succesfully. 
+
+I also have to credit Chat GPT & Claude for code generation/fixing.
