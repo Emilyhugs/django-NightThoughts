@@ -20,18 +20,15 @@ The live project can found here: <a href="https://emily-django-nightthoughts-a6d
     - [Fonts](#fonts)
 - [Features](#features)
   - [Navbar](#navbar)
-  - [Searchbar](#searchbar)
-  - [Random Search Button](#random-search-button)
-  - [Meal Cards](#meal-cards)
+  - [Write Thoughts](#write-thoughts)
+  - [Edit and Delete Thoughts](#edit-and-delete-thoughts)
+  - [Voice Recording](#voice-recording)
+   - [Mood Responsive](#mood-responsive)
   - [Footer](#footer)
-  - [Responsive Design](#responsive-design)
 - [Deployment](#deployment)
 - [Testing](#testing)
-- [Content](#content)
-- [Media](#media)
 - [AI Implementation and Orchestration](#ai-implementation-and-orchestration)
 - [Future Enhancements](#future-enhancements)
-- [Collaborators](#collaborators)
 
 
 ## UX Design
