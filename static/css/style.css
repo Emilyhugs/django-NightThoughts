@@ -1,6 +1,3 @@
-/* NightThoughts - Soothing CSS Design
- * A calming, sleep-focused design with soft features and gentle animations
- */
 
 /* ===== FONTS AND BASE STYLES ===== */
 :root {
@@ -8,7 +5,7 @@
     --secondary-color: #8294c4;
     --accent-color: #acb1d6;
     --background-color: #1a1b2e;
-    --card-bg-color: rgba(45, 49, 77, 0.85);
+    --card-bg-color: #2d314dd9;
     --text-color: #e0e5ff;
     --muted-text: #b6bbd8;
     --footer-bg: rgba(26, 27, 46, 0.9);

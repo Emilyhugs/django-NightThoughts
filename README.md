@@ -1,22 +1,118 @@
 # django-NightThoughts
 
-## Overview
-This project is a journal web application built with the python-based framework Django. The front-end is HTML & CSS & also encorporates the Bootstrap 5 framework. (Javascript?). There is full CRUD functionality as users can create, read, update, and delete their thoughts. The application differs from an ordinary journalling app because it is specifically designed to help users clear their mind before sleep in order to encourages mental decluttering, reducing overthinking & nighttime anxiety, but also to have a place for those genius thougts/ideas we seem to get at night-time when our brain enters a more creative mode. 
+# Overview
+This project is a journal web application built with the python-based framework Django. The front-end is HTML & CSS, Javascipt & also encorporates the Bootstrap 5 framework. There is full CRUD functionality as users can create, read, update, and delete their thoughts. The application differs from an ordinary journalling app because it is specifically designed to help users clear their mind before sleep in order to encourages mental decluttering, reducing overthinking & nighttime anxiety, but also to have a place for those genius thougts/ideas we seem to get at night-time when our brain enters a more creative mode. 
 
-## UX Design Process - COPIED & NOT EDITED YET
-- **Link to User Stories in GitHub Projects:**
-  - [GitHub Projects Kanban Board](https://github.com/username/project/kanban)
-- **Wireframes:**
-  - [Wireframe Designs](https://linktowireframes.com)
-  - Wireframes were designed to ensure clarity, intuitive navigation, and compatibility with assistive technologies. High-contrast colours and alt text for images were used to maximise accessibility.
+The live project can found here: <a href="https://emily-django-nightthoughts-a6d094866e81.herokuapp.com/" target="_blank">Live Project</a>
+
+
+<h2 text-align="center" id="TOC">Table of Contents</h2>
+
+- [NightThoughts](#django-NightThoughts)
+  - [Overview](#overview)
+  - [Table of Contents](#TOC)
+  - [UX Design](#ux-design)
+    - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
+     - [Colors](#colors)
+    - [Fonts](#fonts)
+- [Features](#features)
+  - [Navbar](#navbar)
+  - [Searchbar](#searchbar)
+  - [Random Search Button](#random-search-button)
+  - [Meal Cards](#meal-cards)
+  - [Footer](#footer)
+  - [Responsive Design](#responsive-design)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [Content](#content)
+- [Media](#media)
+- [AI Implementation and Orchestration](#ai-implementation-and-orchestration)
+- [Future Enhancements](#future-enhancements)
+- [Collaborators](#collaborators)
+
+
+## UX Design
+# User stories
+
+You can also view the user stories in the [GitHub Projects Kanban Board](https://github.com/username/project/kanban).
+1) As a site user, I want to log in so that only I can access my page.
+
+✅ Acceptance Criteria:
+
+Given an email, username & password, a user can register an account.
+Then the user can log in.
+When the user is logged in they can write their thoughts down.
+
+2) As a site user, I want to write down my thoughts (worries, ideas, to-dos) before bed so that I can clear my mind and sleep more peacefully.
+
+✅ Acceptance Criteria:
+
+I can enter text into a form and categorize it as a worry, idea, or to-do.
+
+3) As a site user, I want to see my past thoughts in an organized way so that I can reflect on them when needed.
+As a site user, I can view a paginated list of posts so that I can select which post I want to view.
+✅ Acceptance Criteria:
+
+I can see my thoughts listed chronologically.
+When I log in, the main page is a form for me to write today's thoughts.
+When I open the thoughts page, a list of my thoughts is seen.
+Thoughts appear in a calming UI, not just plain text.
+
+4) As a user, I want to edit my past thoughts so that I can take into account any change in my perspective, or if I simply want to rephrase something.
+
+✅ Acceptance Criteria:
+
+-I can update the text of my thoughts.
+-I can change the category (e.g., a "worry" might become an "idea").
+
+5) As a site user, I want to remove thoughts I no longer need so that I can declutter my mind and my digital journal.
+
+✅ Acceptance Criteria:
+
+The thought is permanently deleted from the database.
+
+6) As a user, I want there to be a visual cue to show that I’ve clicked on a thought & reflected on it so that I can track my thoughts.
+
+7) As a Site User, I can click on the About link so that I can read about the site.
+
+When the About link is clicked, the about text is visible.
+
+As a Site Admin, I can create or update the about page content so that it is available on the site.
+
+The About app is visible in the admin panel
+
+8) As a site admin, I want to monitor the site so that I can track the amount of users & view/edit/delete their thoughts or even delete their accounts if necessary.
+
+# Wireframes
+The wireframes for this project have been created using [Balsamiq](https://balsamiq.com/). They show the key features (the thought list) that guided me when creating the website & ensuring responsiveness across different screen sizes, an especially important feature because it is more likely for users to be accessing the site on their phone before they sleep rather than a tablet or computer. 
+
+**ERD**
+I created the ERD with ([Lucid.app](https://www.lucid.app)).
+![ERD](static/images/model-databases.png)
+
+![Computer & Mobile phone Wireframe](static/images/NightThoughts.png)
 - **Design Rationale:**
-  - The layout emphasises simplicity and readability, with Bootstrap 5 providing a responsive design. The colour scheme adheres to WCAG guidelines for contrast, and the typography uses accessible fonts for clarity.
-  - Accessibility considerations include keyboard navigation and screen reader support, ensuring usability for users with diverse needs.
-- **Reasoning For Any Final Changes:**
-  - Based on user feedback, adjustments were made to enhance usability, such as reordering navigation elements for better flow and refining accessibility features. These changes improve the inclusivity of the application.
+  - The layout emphasises simplicity and readability, with Bootstrap 5 providing a responsive design. I didn't want there to be any features that would engage the user too much and distract them from sleep. 
+  # colours
+  These are the colours I chose for the project because they are muted and calming for a nighttime journalling app.
+  ![Colour palette](static/images/palette.png)
+  The colour scheme adheres to WCAG guidelines for contrast, and. I needed to make sure there was sufficient colour contrast but also not have colours which were too bright and that would keep the users awake.
 
-## Key Features
-- **Notice Management:** Create, view, update, and delete notices with ease.
+  To test that the colours are accessible for the users, I checked with [Colour Contrast Checker](https://colourcontrast.cc/)(also available as extension on Chrome Web Store) for the main component of the thought card background colour and the text colour.
+   ![Colour Contrast Checker](static/images/colour-contrast.png)
+
+# fonts
+  
+   The typography I used for the project are Playfair Display for the headings and Karla for the thought text. Playfair Display is a serif font which is slightly less accessible but it is suitable for a journal project. Karla is easy to read and gentle, allowing for a better & accessible user experience when reading their thoughts. 
+
+  - Accessibility considerations include screen reader support, ensuring usability for users with diverse needs. 
+
+  **Logo Design**
+  I asked [Canva](https://www.canva.com/) to generate a logo/favicon. Initially my design was too complicated so I had to simplify it. I wanted it to have the appearance of the moon but with lines of a journal on the side. The middle image here is the one I chose because it is more sleek but I had to make the background transparent before using it. 
+  ![Logo design](static/images/logo-design-ideas.png)
+  
+
 
 ## Key Features
 - **Thoughts Management:** Create, view, update, and delete thoughts with ease.
@@ -61,8 +157,11 @@ AI tools were an invaluable collaborator during the process. Throughout the proj
 
 ## Testing Summary - COPIED & NOT EDITED YET
 - **Manual Testing:**
-  - **Devices and Browsers Tested:** Windows 11 (Chrome, Edge), macOS (Safari), Android, iOS.
-  - **Assistive Technologies:** Tested using Lighthouse in the Developer Tools.
+  - **Devices and Browsers Tested:** I tested the site on my macbook pro and my iphone throughout to check that the app was functioning as I wanted to and to see if there were any obvious bugs I needed to fix. 
+
+  - **Assistive Technologies:** I tested the site using Lighthouse in the Developer Tools. These are the scores that I got. 
+  
+
   - **Features Tested:** CRUD operations, user authentication, responsive design, and accessibility features.
   - **Results:** All critical features, including accessibility checks, worked as expected.
 - **Automated Testing:(If undertaken)**
