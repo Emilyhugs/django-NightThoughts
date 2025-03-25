@@ -1,7 +1,9 @@
 # django-NightThoughts
 
 # Overview
-This project is a journal web application built with the python-based framework Django. The front-end is HTML & CSS, Javascipt & also encorporates the Bootstrap 5 framework. There is full CRUD functionality as users can create, read, update, and delete their thoughts. The application differs from an ordinary journalling app because it is specifically designed to help users clear their mind before sleep in order to encourages mental decluttering, reducing overthinking & nighttime anxiety, but also to have a place for those genius thougts/ideas we seem to get at night-time when our brain enters a more creative mode. 
+This project is a journal web application built with the python-based framework Django. The front-end is HTML & CSS, Javascipt & also encorporates the Bootstrap 5 framework. There is full CRUD functionality as users can create, read, update, and delete their thoughts. The application differs from an ordinary journalling app because it is specifically designed to help users clear their mind before sleep in order to encourage mental decluttering, reduce overthinking & nighttime anxiety, but also to have a place for those genius thoughts/ideas we seem to get at night-time when our brain enters a more creative mode.
+
+ I also wanted to address the advice of not looking at your phone before bed - with the ever increasing amount of time we engage with technology I think it's unlikely that people are going to put their phones away before bed. With that being said, I think it is at least better to encourage journalling/reflecting instead of mindlessly scrolling on social media. 
 
 The live project can found here: <a href="https://emily-django-nightthoughts-a6d094866e81.herokuapp.com/" target="_blank">Live Project</a>
 
@@ -137,13 +139,16 @@ I created the ERD with ([Lucid.app](https://www.lucid.app)).
   ## AI Implementation and Orchestration
 
 ### Use Cases and Reflections:
+AI tools have been an invaluable collaborator during the process because I have been working with relatively new frameworks (eg. django, bootstrap) and new languages like python and javascript. Throughout the project, I mainly relied on Chat GPT and Claude to develop my ideas and to further streamline development, but I also relied on Copilot to help as it had access to the project in my local environment and was therefore useful because it could directly assist me on my project. 
 
-AI tools were an invaluable collaborator during the process. Throughout the project, I mainly relied on Chat GPT to develop my ideas and to further streamline development, but I also relied on Copilot to help as it had access to the project in my local environment and was therefore useful because it could directly assist me on my project. 
+Claude was really useful because it has a beta option to link up to a github project so it could directly access my code via my repo. 
 
 - **Code Creation:** 
+Claude and Chat GPT were really invaluable for suggesting/generating code, particularly css designs, javascript functions etc. In particular, the only reason I have the feature to record your thought is because Claude generated that code for me. 
  
 
 - **Debugging:** 
+There were times where the css/javascript caused bugs in my code and I used AI tools to help me fix these errors. It was much more efficient than manually trying to find answers to the bugs myself or even find answers on Stack Overflow. However, when there was an accessibility issue with the modal keeping the focus on the button even when the modal is hidden, AI struggled to fix that, so I did need to go to Stack Overflow. Overall though, AI tools massively enhanced the efficiency of the project. 
 
 
 - **Performance and UX Optimization:** 
@@ -154,13 +159,13 @@ AI tools were an invaluable collaborator during the process. Throughout the proj
 
 ### Overall Impact:
 
-
-## Testing Summary - COPIED & NOT EDITED YET
 - **Manual Testing:**
-  - **Devices and Browsers Tested:** I tested the site on my macbook pro and my iphone throughout to check that the app was functioning as I wanted to and to see if there were any obvious bugs I needed to fix. 
+  - **Devices and Browsers Tested:** I tested the site on my macbook pro and my iphone throughout to check that the app was functioning as I wanted it to and to see if there were any obvious bugs I needed to fix. 
 
   - **Assistive Technologies:** I tested the site using Lighthouse in the Developer Tools. These are the scores that I got. 
   
+![Lighthouse scores](static/images/lighthouse-computer.png) (static/images/lighthouse-mobile.png)
+
 
   - **Features Tested:** CRUD operations, user authentication, responsive design, and accessibility features.
   - **Results:** All critical features, including accessibility checks, worked as expected.
@@ -169,8 +174,8 @@ AI tools were an invaluable collaborator during the process. Throughout the proj
   - Features Covered: CRUD operations, user authentication, and accessibility compliance.
   - Adjustments Made: Additional manual modifications to ensure comprehensive test coverage and inclusivity.
 
-## Future Enhancements - COPIED & NOT EDITED YET
-- Add a notification feature for upcoming events and deadlines.
+## Future Enhancements
+- Add an about page where the admin can post blogs about sleeping tips. 
 - Build multilingual support for non-English-speaking users.
 - Learn how to build or integrate analytics for tracking user engagement with notices.
 
