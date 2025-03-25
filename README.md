@@ -141,6 +141,8 @@ This is a really awesome function of speech recognition that converts the users'
 # Mood Responsive 
 Another additional feature was to make the thought cards' borders glow with different colours depending on the users' selected mood. It adds more dynamicism to the website without being overpowering and it acts as a subtle way for the user to reflect on their mood when they click or touch the card. 
 
+# Footer
+The footer includes links to social media (if there were any.)
 
 - **Inclusivity Notes:** 
   - Features include ARIA labels for screen readers. This app doesn't have images so I didn't need to worry about 'alt' tags. 
