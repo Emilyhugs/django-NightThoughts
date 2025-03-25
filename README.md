@@ -93,7 +93,7 @@ The wireframes for this project have been created using [Balsamiq](https://balsa
 
 ![Computer & Mobile phone Wireframe](static/images/NightThoughts.png)
 
-**ERD**
+# ERD
 I created the ERD with ([Lucid.app](https://www.lucid.app)).
 I actually updated the thought model to include a mood category because I wanted the website to be responsive to the user's moods. 
 
